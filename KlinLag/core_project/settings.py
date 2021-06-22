@@ -1,12 +1,15 @@
 from pathlib import Path
 import json
+import os
+import environ
  
 BASE_DIR = Path(__file__).resolve().parent.parent
+env = environ.Env()
+environ.Env.read_env()
+# with open(BASE_DIR + 'core_project/.env', 'r') as config:
+#     obj = json.load(config)
 
-with open(BASE_DIR + 'core_project/config.json', 'r') as config:
-    obj = jason.load(config)
-
-SECRET_KEY = obj["API_KEY"] 
+SECRET_KEY = os.getenv("API_KEY")
 
 DEBUG = True
 
@@ -20,7 +23,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework', # Psalmi I set this for you so you can concentrate on the API logic
+    'rest_framework', # Psami I set this for you so you can concentrate on the API logic
     'main_app', # This is the main application
 ]
 
@@ -117,3 +120,4 @@ REST_FRAMEWORK = {
         'rest_framework.permisions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
+AUTH_USER_MODEL = "main_app.Users"

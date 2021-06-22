@@ -1,0 +1,12 @@
+from django.contrib import admin
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.landing, name='landing'),
+    path('home/', views.index, name='home'),
+    path('login/', views.login_request, name='login'),
+    path('signup/user/', views.signup_user, name='signup_user'),
+    path('signup/agency', views.signup_agency, name='signup_agency'),
+    path('logout/', views.logout_request, name='logout')
+]
