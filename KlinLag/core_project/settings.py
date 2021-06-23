@@ -23,8 +23,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework', # Psami I set this for you so you can concentrate on the API logic
+    'rest_framework',
+    'rest_framework.authtoken',# Psami I set this for you so you can concentrate on the API logic
     'main_app', # This is the main application
+    'klin_api',
+    'djoser'
 ]
 
 MIDDLEWARE = [
@@ -116,8 +119,22 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+
+    ],
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permisions.DjangoModelPermissionsOrAnonReadOnly'
+        'rest_framework.permissions.AllowAny'
     ]
 }
-AUTH_USER_MODEL = "main_app.Users"
+AUTH_USER_MODEL = "klin_api.User"
+
+DJOSER = {
+    'USER_CREATE_PASSWORD_RETYPE': True,
+    # 'SERIALIZERS':{
+    #     'user_create': 'klin_api.serializers.UserSerializer',
+    #     'user': 'klin_api.serializers.UserSerializer'
+    # }
+}

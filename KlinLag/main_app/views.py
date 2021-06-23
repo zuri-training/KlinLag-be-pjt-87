@@ -15,7 +15,7 @@ def signup_user(request):
             user = authenticate(username=username, password=raw_password)
             user.is_giver = True
             login(request, user)
-            return redirect('home')
+            return redirect('main_app:home')
     else:
         form = UserSignUpForm
     return render(request, 'signup_user.html', {'signup_user_form': form})
@@ -31,7 +31,7 @@ def signup_agency(request):
             user = authenticate(username=username, password=raw_password)
             user.is_collector = True
             login(request, user)
-            return redirect('home')
+            return redirect('main_app:home')
     else:
         form = AgencySignUpForm
     return render(request, 'signup_agency.html', {'signup_agency_form': form})
@@ -50,7 +50,7 @@ def login_request(request):
 
                 login(request, user)
                 messages.info(request, f'You are now logged in as {username}')
-                return redirect('home')
+                return redirect('main_app:home')
             else:
                 messages.error(request, 'Invalid username or password')
         else:
@@ -62,7 +62,7 @@ def login_request(request):
 def logout_request(request):
     logout(request)
     messages.info(request, "You have successfully logged out.")
-    return redirect("login")
+    return redirect("main_app:login")
 
 
 def index(request):
