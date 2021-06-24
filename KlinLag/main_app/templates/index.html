@@ -1,5 +1,12 @@
-<html>Stay tuned bitches
-<div>
-    <a href="{% url 'main_app:logout' %}">Logout</a>
-</div>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+{#<html>Stay tuned bitches#}
+{#<div>#}
+{#    <a href="{% url 'main_app:logout' %}">Logout</a>#}
+{#</div>#}
+{#</html>#}
+                    <h2 class="title">Welcome</h2>
+                    <a href="{% url 'main_app:logout' %}"><button class="btn btn-secondary">Logout</button></a>
+{% endblock %}

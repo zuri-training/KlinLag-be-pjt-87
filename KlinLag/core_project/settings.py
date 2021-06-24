@@ -27,7 +27,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',# Psami I set this for you so you can concentrate on the API logic
     'main_app', # This is the main application
     'klin_api',
-    'djoser'
+    'djoser',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -138,3 +139,8 @@ DJOSER = {
     #     'user': 'klin_api.serializers.UserSerializer'
     # }
 }
+
+
+STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
