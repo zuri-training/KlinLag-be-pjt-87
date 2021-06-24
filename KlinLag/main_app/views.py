@@ -9,11 +9,11 @@ def signup_user(request):
     if request.method == 'POST':
         form = UserSignUpForm(request.POST)
         if form.is_valid():
+            form.is_giver = True
             form.save()
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
-            user.is_giver = True
             login(request, user)
             return redirect('main_app:home')
     else:
@@ -29,7 +29,6 @@ def signup_agency(request):
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
-            user.is_collector = True
             login(request, user)
             return redirect('main_app:home')
     else:

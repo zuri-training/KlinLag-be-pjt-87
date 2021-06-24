@@ -16,7 +16,6 @@ class UserCreate(views.TokenCreateView):
         if serializer.is_valid():
             user = serializer.save()
             if user:
-                user.is_giver = True
                 token = Token.objects.create(user=user)
                 json = serializer.data
                 json['token'] = token
@@ -31,7 +30,6 @@ class AgencyCreate(views.TokenCreateView):
         if serializer.is_valid():
             user = serializer.save()
             if user:
-                user.is_collector = True
                 token = Token.objects.create(user=user)
                 json = serializer.data
                 json['token'] = token
