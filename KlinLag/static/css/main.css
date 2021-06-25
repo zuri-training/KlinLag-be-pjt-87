@@ -127,6 +127,7 @@ body {
   font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
   font-weight: 400;
   font-size: 14px;
+  background-image: url("/static/images/eco-concept-recycling-symbol-on-600w-600755237.png");
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -169,11 +170,18 @@ h6 {
 }
 
 .bg-gra-01 {
-  background: -webkit-gradient(linear, left bottom, left top, from(#78a04b), to(#28532f));
-  background: -webkit-linear-gradient(bottom, #78a04b 0%, #28532f 100%);
-  background: -moz-linear-gradient(bottom, #78a04b 0%, #28532f 100%);
-  background: -o-linear-gradient(bottom, #78a04b 0%, #28532f 100%);
-  background: linear-gradient(to top, #78a04b 0%, #28532f 100%);
+  background: -webkit-gradient(linear, left bottom, left top, from(#acec65), to(#41e017));
+  background: -webkit-linear-gradient(bottom, #acec65 0%, #41e017 100%);
+  background: -moz-linear-gradient(bottom, #acec65 0%, #41e017 100%);
+  background: -o-linear-gradient(bottom, #acec65 0%, #41e017 100%);
+  background: linear-gradient(to top, #acec65 0%, #41e017 100%);
+}
+.bg-gra-0001 {
+  background: -webkit-gradient(linear, left bottom, left top, from(#40941c), to(#228309));
+  background: -webkit-linear-gradient(bottom, #40941c 0%, #228309 100%);
+  background: -moz-linear-gradient(bottom, #40941c 0%, #228309 100%);
+  background: -o-linear-gradient(bottom, #40941c 0%, #228309 100%);
+  background: linear-gradient(to top, #40941c 0%, #228309 100%);
 }
 
 /* ==========================================================================
@@ -258,6 +266,8 @@ h6 {
 .btn--green:hover {
   background: #4dae3c;
 }
+
+
 
 /* ==========================================================================
    #DATE PICKER
