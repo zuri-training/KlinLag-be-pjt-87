@@ -127,7 +127,7 @@ body {
   font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
   font-weight: 400;
   font-size: 14px;
-  background-image: url("/static/images/eco-concept-recycling-symbol-on-600w-600755237.png");
+  background-image: url("/static/images/bg-heading-03.jpg");
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -505,7 +505,7 @@ input {
 }
 
 .card-3 .card-heading {
-  background: url("../images/bg-heading-03.jpg") top left/cover no-repeat;
+  background: url("../images/logo.png") top left/cover no-repeat;
   display: table-cell;
   width: 50%;
 }

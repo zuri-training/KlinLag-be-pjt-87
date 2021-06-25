@@ -134,6 +134,15 @@ AUTH_USER_MODEL = "klin_api.User"
 
 DJOSER = {
     'USER_CREATE_PASSWORD_RETYPE': True,
+    'USERNAME_CHANGED_EMAIL_CONFIRMATION': True,
+    'PASSWORD_CHANGED_EMAIL_CONFIRMATION': True,
+    'SEND_CONFIRMATION_EMAIL': True,
+    'SET_USERNAME_RETYPE': True,
+    'SET_PASSWORD_RETYPE': True,
+    'PASSWORD_RESET_CONFIRM_URL': 'reset/{uid}/{token}',
+    'USERNAME_RESET_CONFIRM_URL': 'email/reset/confirm/{uid}/{token}',
+    'ACTIVATION_URL': 'activate/{uid}/{token}',
+    'SEND_ACTIVATION_EMAIL': True,
     # 'SERIALIZERS':{
     #     'user_create': 'klin_api.serializers.UserSerializer',
     #     'user': 'klin_api.serializers.UserSerializer'
@@ -144,3 +153,10 @@ DJOSER = {
 STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'pjt87klinlag@gmail.com'
+EMAIL_HOST_PASSWORD = os.getenv('PASS')
