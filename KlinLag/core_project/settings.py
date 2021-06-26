@@ -1,12 +1,15 @@
 from pathlib import Path
 import json
+import os
+import environ
  
 BASE_DIR = Path(__file__).resolve().parent.parent
+env = environ.Env()
+environ.Env.read_env()
+# with open(BASE_DIR + 'core_project/.env', 'r') as config:
+#     obj = json.load(config)
 
-with open(BASE_DIR + 'core_project/config.json', 'r') as config:
-    obj = jason.load(config)
-
-SECRET_KEY = obj["API_KEY"] 
+SECRET_KEY = os.getenv("API_KEY")
 
 DEBUG = True
 
@@ -20,8 +23,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework', # Psalmi I set this for you so you can concentrate on the API logic
+    'rest_framework',
+    'rest_framework.authtoken',# Psami I set this for you so you can concentrate on the API logic
     'main_app', # This is the main application
+    'klin_api',
+    'djoser',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -113,7 +120,43 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+
+    ],
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permisions.DjangoModelPermissionsOrAnonReadOnly'
+        'rest_framework.permissions.AllowAny'
     ]
 }
+AUTH_USER_MODEL = "klin_api.User"
+
+DJOSER = {
+    'USER_CREATE_PASSWORD_RETYPE': True,
+    'USERNAME_CHANGED_EMAIL_CONFIRMATION': True,
+    'PASSWORD_CHANGED_EMAIL_CONFIRMATION': True,
+    'SEND_CONFIRMATION_EMAIL': True,
+    'SET_USERNAME_RETYPE': True,
+    'SET_PASSWORD_RETYPE': True,
+    'PASSWORD_RESET_CONFIRM_URL': 'reset/{uid}/{token}',
+    'USERNAME_RESET_CONFIRM_URL': 'email/reset/confirm/{uid}/{token}',
+    'ACTIVATION_URL': 'activate/{uid}/{token}',
+    'SEND_ACTIVATION_EMAIL': True,
+    # 'SERIALIZERS':{
+    #     'user_create': 'klin_api.serializers.UserSerializer',
+    #     'user': 'klin_api.serializers.UserSerializer'
+    # }
+}
+
+
+STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'pjt87klinlag@gmail.com'
+EMAIL_HOST_PASSWORD = os.getenv('PASS')
