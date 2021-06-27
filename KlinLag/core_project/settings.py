@@ -9,7 +9,7 @@ environ.Env.read_env()
 # with open(BASE_DIR + 'core_project/.env', 'r') as config:
 #     obj = json.load(config)
 
-SECRET_KEY = os.getenv("API_KEY")
+SECRET_KEY = 'django-insecure-%ivf%yld5)!vjn!@r_(ji(_b6ap_u%6fgxqbe_*dcnuk@6i3i$'  #os.getenv("API_KEY")
 
 DEBUG = True
 
