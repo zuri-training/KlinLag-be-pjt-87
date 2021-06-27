@@ -8,24 +8,36 @@
 **Stack Used**
 
 ### 
-*Django
+* Python
+* Django
 
 ## Description of Project.
 
-**Type BE description here**
+**This is the Back End **
 
-**Some of the features included in this app:**
+**Some of the features included in this app include:
+  * User authentication via email
+  * Sign up/Sign in as Recycling Agency
+  * Sign up/Sign in as Trash-collector
+  * Tickable calendar
+  * Interactive real-time Leaderboard **
 
 ### 
-* Type BE features
+* Back End features:
 
-## Requirement
+
+## Requirements
 
 ### 
-* Django
+* Python 
+* Django Web Framework
+* Django Rest Framework
+* Django Rest Framework JSON API
 
 
 ## Database Details
+* SQLite for development
+* MongoDB for production
 
 ## <a name="contribute"></a> Contribution Guide
 
