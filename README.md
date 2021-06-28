@@ -5,11 +5,15 @@
  - Work only on the [development branch](https://github.com/zuri-training/KlinLag-be-pjt-87/tree/dev) for now
 
 ## About Klin Lag
+**Klin Lag is basically about getting people to recycle and not litter the environment. Things like pet bottles, nylons, styrofoam packs, etc will be collected and handed over to recycling companies. This will help solve the problem of flooding because these are most of the things clogging our gutters and waterways.
+The people handling this project will be a middleman for the consumers of these item and the recyclers and will also collaborate with the cleaning agency(both road managers and trucks) in Lagos to help collect these items. This project will be inclusive as it will involve everyone from all walks of life from the bus drivers to the market women to the CEOs.
+**
 **Stack Used**
 
 ### 
 * Python
 * Django
+* Django REST Framework
 
 ## Description of Project.
 
@@ -23,7 +27,8 @@
   * Interactive real-time Leaderboard **
 
 ### 
-* Back End features:
+**Back End Features:**
+* REST API (Which will be a connection to the Front End)
 
 
 ## Requirements
@@ -33,11 +38,12 @@
 * Django Web Framework
 * Django Rest Framework
 * Django Rest Framework JSON API
+* Djoser
 
 
 ## Database Details
-* SQLite for development
-* MongoDB for production
+* SQLite3 will be used only during development
+* MongoDB will be integrated at production stage
 
 ## <a name="contribute"></a> Contribution Guide
 
