@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import UserSignUpForm, AgencySignUpForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
@@ -12,6 +12,7 @@ from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
 from .tokens import account_activation_token
 from django.template.loader import render_to_string
+from django.contrib.auth.decorators import login_required
 
 
 def activation_sent_view(request):
@@ -104,16 +105,20 @@ def login_request(request):
     form = AuthenticationForm()
     return render(request=request, template_name='login.html', context={'login_form': form})
 
-
+@login_required
 def logout_request(request):
     logout(request)
     messages.info(request, "You have successfully logged out.")
     return redirect("main_app:login")
 
-
+@login_required
 def index(request):
     return render(request, 'index.html')
 
 
 def landing(request):
     return render(request, 'landing.html')
+
+# def base(request):
+#     user = get_object_or_404(User)
+#     return render(request, 'base.html', {'user':user} )
