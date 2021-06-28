@@ -89,7 +89,7 @@ body {
 * HEADER
 ************************************/
 .header {
-  background-image: url('../images/hero-bg3.png');
+  background-image: url('../assets/hero-bg3.png');
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
