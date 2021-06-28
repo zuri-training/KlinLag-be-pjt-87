@@ -8,6 +8,7 @@
 **Klin Lag is basically about getting people to recycle and not litter the environment. Things like pet bottles, nylons, styrofoam packs, etc will be collected and handed over to recycling companies. This will help solve the problem of flooding because these are most of the things clogging our gutters and waterways.
 The people handling this project will be a middleman for the consumers of these item and the recyclers and will also collaborate with the cleaning agency(both road managers and trucks) in Lagos to help collect these items. This project will be inclusive as it will involve everyone from all walks of life from the bus drivers to the market women to the CEOs.
 **
+
 **Stack Used**
 
 ### 
