@@ -47,6 +47,14 @@ The people handling this project will be a middleman for the consumers of these 
 * SQLite3 will be used only during development
 * MongoDB will be integrated at production stage
 
+
+## Active Members
+1. Kamar Folarin
+2. Owhondah Okechukwu Samuel
+3. Joshua Igoni
+4. Emmanuel Simasiku
+5. Sobayo Toluwanimi
+
 ## <a name="contribute"></a> Contribution Guide
 
 1. Go to [https://github.com/zuri-training/KlinLag-be-pjt-87](https://github.com/zuri-training/KlinLag-be-pjt-87) and fork the repo.
