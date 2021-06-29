@@ -8,6 +8,9 @@
 .font-poppins {
   font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
 }
+.font-lato {
+  font-family: "lato", "Arial", "Helvetica Neue", sans-serif;
+}
 
 /* ==========================================================================
    #GRID
@@ -124,7 +127,7 @@ button {
 }
 
 body {
-  font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
+  font-family: "lato", "Arial", "Helvetica Neue", sans-serif;
   font-weight: 400;
   font-size: 14px;
   background-image: url("/static/images/bg-heading-03.jpg");
@@ -260,7 +263,11 @@ h6 {
 }
 
 .btn--green {
-  background: #57b846;
+  background: #2ba84a;
+}
+
+.btn--yellow {
+  background: #efbd09;
 }
 
 .btn--green:hover {
@@ -476,7 +483,7 @@ input {
    ========================================================================== */
 .title {
   font-size: 24px;
-  color: #fff;
+  color: #000000;
   font-weight: 400;
   margin-bottom: 36px;
 }
@@ -493,7 +500,7 @@ input {
 }
 
 .card-3 {
-  background: #000;
+  background: #ffffff;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
@@ -505,7 +512,7 @@ input {
 }
 
 .card-3 .card-heading {
-  background: url("../images/logo.png") top left/cover no-repeat;
+  background: url("../images/img.png") no-repeat top left/cover;
   display: table-cell;
   width: 50%;
 }

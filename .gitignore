@@ -3,8 +3,9 @@ config.json
 *.log
 *.pot
 *.pyc
-*.env
 __pycache__/
 local_settings.py
 db.sqlite3
 media
+core_project/.env
+venv
