@@ -39,9 +39,9 @@ def signup_user(request):
         form = UserSignUpForm(request.POST)
         if form.is_valid():
             form.save()
-            username = form.cleaned_data.get('username')
+            email = form.cleaned_data.get('email')
             raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
+            user = authenticate(username=email, password=raw_password)
             user.is_active = False
             user.save()
             current_site = get_current_site(request)
@@ -64,9 +64,9 @@ def signup_agency(request):
         form = AgencySignUpForm(request.POST)
         if form.is_valid():
             form.save()
-            username = form.cleaned_data.get('username')
+            email = form.cleaned_data.get('email')
             raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
+            user = authenticate(username=email, password=raw_password)
             user.is_active = False
             user.save()
             current_site = get_current_site(request)
@@ -104,6 +104,30 @@ def login_request(request):
             messages.error(request, 'Invalid username or password.')
     form = AuthenticationForm()
     return render(request=request, template_name='login.html', context={'login_form': form})
+
+
+def login_agency(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+
+            user = authenticate(username=username, password=password)
+
+            if user is not None:
+
+                login(request, user)
+                messages.info(request, f'You are now logged in as {username}')
+
+                return redirect('main_app:home')
+            else:
+                messages.error(request, 'Invalid username or password')
+        else:
+            messages.error(request, 'Invalid username or password.')
+    form = AuthenticationForm()
+    return render(request=request, template_name='login_agency.html', context={'login_form': form})
+
 
 @login_required
 def logout_request(request):
