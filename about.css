@@ -255,9 +255,12 @@ footer h4{
 .sub-col4{
   flex:1;
 }
+.row2{
+  margin-left: 110px;
+}
 .social-icons{
   display: flex;
-  margin-left: 50px;
+  margin-left: -50px;
     
 }
 .social-icons li{
