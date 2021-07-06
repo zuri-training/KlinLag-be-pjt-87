@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Klin Lag | About Us </title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;900&display=swap"
+    rel="stylesheet">
     <link href="./about.css" rel="stylesheet" >
 </head>
 
@@ -13,13 +16,14 @@
             <div id="branding">
                 <img class="logo" src="assets/logo.svg" alt="KLINLAG Logo">
                </div>
-               <nav>
+               <nav class="header-list">
                    <ul>
                        <li > <a href=index.html>HOME</a></li>
                        <li class="current"> <a href=index.html>ABOUT US</a></li>
                        <li> <a href=index.html>HOW IT WORKS</a></li>
                        <li> <a href=index.html> CONTACT</a></li>
                        <li> <a href=index.html> BLOG </a></li>
+                       <li> <a href=index.html> <img src="assets/user.png" alt="user"> </a></li>
                    </ul>
                </nav>
         </div>
@@ -140,66 +144,66 @@
 
 <!-- FOOTER -->
 <footer class="footer">
-      <div class="row">
-<!--        column 1  -->
-      <div class="footer-col1">
-        <img class="logo" src="assets/logo-white.png" alt="KLINLAG Logo">
-  <section id="newsletter">
-        <h4> SUBSCRIBE TO OUR NEWSLETTER</h4>
-    <form>
-                    <input type="email" placeholder="Enter your email address..." class="footer_input">
-                    <button type="submit" class="button_1">SUBSCRIBE</button>
-                </form>
-
-      </div>
-        <!--        column 2  -->
-        <div class="footer-col2">
-        <h4> ABOUT US</h4>
+  <section class="row1">
+  <section class="sub-col1">
+    <div ><img src="assets/logo-white.svg" alt="footer-logo" >
+    </div>
+    <div class="newsletter">
+      <h5>SUBSCRIBE TO OUR NEWSLETTER</h5>
+      <input type="email" placeholder="Enter your email address..." class="footer_input">
+<button type="submit" class="button_1">SUBSCRIBE</button>
+    </div>
+    </section>
+  
+<!--   ABOUT us -->
+  <section class="sub-col2">
+    <h5> ABOUT US</h5>
         <ul>
             <li> <a href=index.html>Our Mission</a></li>
             <li> <a href=index.html> Services</a></li>
             <li> <a href=index.html> Partnership </a></li>
         </ul>
-      </div>
-      <!--        column 3  -->
-        <div class="footer-col3">
-        <h4> RESOURCES</h4>
+    </section>
+  <section class="sub-col3">
+    <h5> RESOURCES</h5>
         <ul>
           <li><a href='#'>Careers </a></li>
           <li> <a href=index.html>Blog</a></li>
             <li> <a href=index.html> Volunteer</a></li>
             <li> <a href=index.html> FAQS </a></li>
         </ul>
-      </div>
-     <!--        column 4  -->
-        <div class="footer-col4">
-        <h4> CONTACT US</h4>
+    </section>
+  <section class="sub-col4">
+    <h5> CONTACT US</h5>
         <ul>
           <li><a href='#'><i class="fa fa-home" aria-hidden="true"></i> 8 Jubilee CMD Road Magodo, Lagos State </a></li>
           <li> <a href=index.html><i class="fa fa-phone" aria-hidden="true"></i>+2349000099900</a></li>
             <li> <a href=index.html> <i class="fa fa-envelope" aria-hidden="true"></i>hello@klinlag.ng</a></li>
             
         </ul>
-      </div>
-        </div>
-        
     
-    <div class="footer-social-icons">
-      <div class="col">
-          <h4 class="connect text-center text-white"><span>CONNECT WITH US</span></h4>
-        </div>
-      <ul class="social-icons">
-      <div ><a class="nav-link text-white" href="#">Terms</a>
-      <a class="nav-link text-white" href="#">Privacy</a>
-        </div>
-        <li><a href="" class="social-icon"> <i class="fa fa-facebook"></i></a></li>
-        <li><a href="" class="social-icon"> <i class="fa fa-twitter"></i></a></li>
-        <li><a href="" class="social-icon"> <i class="fa fa-instagram"></i></a></li>
+    </section>
+  </section>
+  <section class="row2">
+  <div>
+  <h4 class="connect text-center text-white"><span>CONNECT WITH US</span></h4>
+    <ul class="social-icons">
+      <div class="left">
+      <li><a class="nav-link text-white" href="#">Terms</a></li>
+      <li><a class="nav-link text-white" href="#">Privacy</a></li>
+    </div>
+    <div class="right footer-nav-secondary">
+                <li class=""><a href="" class="social-icon"> <i class="fa fa-facebook fa-2x"></i></a></li>
+        <li><a href="" class="social-icon"> <i class="fa fa-twitter fa-2x"></i></a></li>
+        <li><a href="" class="social-icon"> <i class="fa fa-instagram fa-2x"></i></a></li>
    
-      <li> <i class="fa fa-youtube-play" aria-hidden="true"></i></li>
+      <li> <i class="fa fa-youtube-play fa-2x" aria-hidden="true"></i></li>
+      </div>
          </ul>
         </div>
-        
-        </footer>
+
+    </div>
+    </section>
+</footer>
     </body>
 </html>
