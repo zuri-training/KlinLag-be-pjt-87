@@ -16,4 +16,4 @@ class User(AbstractUser):
     signup_confirmation = models.BooleanField(default=False)
     username = models.CharField(max_length=50, unique=True)
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name', 'last_name', 'phone', 'location', 'is_giver', 'is_collector', 'username']
+    REQUIRED_FIELDS = ['username']
