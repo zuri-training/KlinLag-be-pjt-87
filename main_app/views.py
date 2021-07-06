@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import UserSignUpForm, AgencySignUpForm
+from .forms import *
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_text
-from .models import User
+from .models import User, Profile
 from django.db import IntegrityError
 from django.utils.http import urlsafe_base64_decode
 from django.utils.encoding import force_bytes
@@ -44,6 +44,7 @@ def signup_user(request):
             user = authenticate(username=email, password=raw_password)
             user.is_active = False
             user.save()
+            Profile.objects.create(user=user)
             current_site = get_current_site(request)
             subject = 'Please Activate Your Account'
             message = render_to_string('activation_request.html', {
@@ -143,6 +144,27 @@ def index(request):
 def landing(request):
     return render(request, 'landing.html')
 
-# def base(request):
-#     user = get_object_or_404(User)
-#     return render(request, 'base.html', {'user':user} )
+@login_required
+def my_profile(request):
+    p = request.user.profile
+    user = p.user
+    return render(request, 'my_profile.html', {'profile':p, 'user':user})
+
+@login_required
+def edit_profile(request):
+    if request.method == 'POST':
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, f'Your account has been updated!')
+            return redirect('main_app:my_profile')
+    else:
+        u_form = UserUpdateForm(instance=request.user)
+        p_form = ProfileUpdateForm(instance=request.user.profile)
+    context ={
+        'u_form': u_form,
+        'p_form': p_form,
+    }
+    return render(request, 'edit_profile.html', context)

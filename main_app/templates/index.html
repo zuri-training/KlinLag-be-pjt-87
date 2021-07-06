@@ -8,5 +8,7 @@
 {#</div>#}
 {#</html>#}
                     <h2 class="title">Welcome</h2>
+
+                    <a href="{% url 'main_app:my_profile' %}"><button class="btn btn--green">My Profile</button></a>
                     <a href="{% url 'main_app:logout' %}"><button class="btn btn-secondary">Logout</button></a>
 {% endblock %}
