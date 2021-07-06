@@ -280,6 +280,9 @@ body {
 /* Media Query */
 
 @media screen and (max-width: 36rem) {
+  .heading-footer {
+    margin-top: 2rem;
+  }
   .px-7 {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -293,5 +296,9 @@ body {
     font-weight: 500;
     padding: 0.7rem 1.4rem;
     border-radius: 0.8rem;
+  }
+
+  .nav.footer-nav-left {
+    justify-content: center;
   }
 }
