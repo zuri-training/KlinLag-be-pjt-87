@@ -70,6 +70,7 @@ def signup_agency(request):
             user = authenticate(username=email, password=raw_password)
             user.is_active = False
             user.save()
+            Profile.objects.create(user=user)
             current_site = get_current_site(request)
             subject = 'Please Activate Your Account'
             message = render_to_string('activation_request.html', {
@@ -86,6 +87,9 @@ def signup_agency(request):
 
 
 def login_request(request):
+    current_user = request.user
+    if current_user.is_authenticated:
+        return redirect('main_app:home')
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
@@ -108,6 +112,9 @@ def login_request(request):
 
 
 def login_agency(request):
+    current_user=request.user
+    if current_user.is_authenticated:
+        return redirect('main_app:home')
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
@@ -142,6 +149,9 @@ def index(request):
 
 
 def landing(request):
+    user = request.user
+    if user.is_authenticated:
+        return redirect('main_app:home')
     return render(request, 'landing.html')
 
 @login_required

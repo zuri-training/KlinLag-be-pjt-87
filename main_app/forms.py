@@ -74,7 +74,7 @@ class AgencySignUpForm(UserCreationForm):
 class UserUpdateForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ['username', 'email', 'phone', 'location']
+        fields = ['username', 'first_name', 'last_name', 'phone', 'location']
 
 
 class ProfileUpdateForm(forms.ModelForm):
