@@ -53,7 +53,6 @@ The people handling this project will be a middleman for the consumers of these 
 2. Owhondah Okechukwu Samuel
 3. Joshua Igoni
 4. Emmanuel Simasiku
-5. Sobayo Toluwanimi
 
 ## <a name="contribute"></a> Contribution Guide
 
