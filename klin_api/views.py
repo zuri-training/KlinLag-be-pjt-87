@@ -4,7 +4,6 @@ from .serializers import *
 from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
 from djoser import views
-<<<<<<< HEAD:KlinLag/klin_api/views.py
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.reverse import reverse_lazy
@@ -12,13 +11,13 @@ from rest_framework.reverse import reverse_lazy
 from django.views.generic.list import ListView
 from .utils import Calendar
 from .models import Schedule
-=======
+ 
 from rest_framework import status, generics
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
 from main_app.models import Profile
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
->>>>>>> 4de1a8b31cd0ca5f548c0071f691321f44e5f90d:klin_api/views.py
+ 
 
 # Create your views here.
 
@@ -53,7 +52,7 @@ class AgencyCreate(views.TokenCreateView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-<<<<<<< HEAD:KlinLag/klin_api/views.py
+ 
 class CalendarView(ListView):
     model = Schedule
     template_name = 'components/calendar.html'
@@ -69,7 +68,7 @@ class CalendarView(ListView):
         context[next_month] = next_month(date)
 
         return context
-=======
+ 
 class ProfileView(generics.RetrieveAPIView):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
@@ -96,4 +95,4 @@ class UserUpdateView(generics.RetrieveUpdateAPIView):
         return self.request.user
 
 
->>>>>>> 4de1a8b31cd0ca5f548c0071f691321f44e5f90d:klin_api/views.py
+ 

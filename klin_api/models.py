@@ -16,6 +16,7 @@ class Schedule(models.Model):
     def get_calendar_url(self):
         url = reverse('schedule_edit', args=(self.id,))
         return f'<p>{self.title}</p><a href="{url}">edit</a>'
+ 
 
 
 # Create your models here.

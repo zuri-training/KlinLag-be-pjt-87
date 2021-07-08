@@ -28,8 +28,8 @@ INSTALLED_APPS = [
     'main_app', # This is the main application
     'klin_api',
     'djoser',
-    'crispy_forms',
-    'django.contrib.gis',
+    'crispy_forms'
+ 
 ]
 
 MIDDLEWARE = [
@@ -51,7 +51,8 @@ ROOT_URLCONF = 'core_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templatesp')],
+ 
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,6 +75,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',  
+ 
     }
 }
 
