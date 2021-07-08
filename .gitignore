@@ -1,0 +1,20 @@
+### Django ###
+config.json
+*.log
+*.pot
+*.pyc
+<<<<<<< HEAD:KlinLag/.gitignore
+__pycache__
+local_settings.py
+db.sqlite3
+env
+.env
+
+=======
+__pycache__/
+local_settings.py
+db.sqlite3
+media
+core_project/.env
+venv
+>>>>>>> 4de1a8b31cd0ca5f548c0071f691321f44e5f90d:.gitignore

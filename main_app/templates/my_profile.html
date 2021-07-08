@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+{#<html>Stay tuned bitches#}
+{#<div>#}
+{#    <a href="{% url 'main_app:logout' %}">Logout</a>#}
+{#</div>#}
+{#</html>#}
+                    <div class="card-profile-image">
+                <a href="{{ user.profile.image.url }}">
+                  <img
+                    src="{{ user.profile.image.url }}"
+                    class="rounded-circle"
+                    width="160px"
+                    height="160px"
+                  />
+                </a>
+                    <p class="text-center text-info">{{ user.first_name }} {{ user.last_name }}</p>
+                    <p class="text-center text-dark">Section Points: {{ user.profile.section_points }}</p>
+
+                        <br/><br/>
+                    <a href="{% url 'main_app:edit_profile' %}"><button class="btn btn--green">Edit Profile</button></a>
+              </div>
+{% endblock %}
