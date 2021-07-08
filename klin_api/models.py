@@ -2,6 +2,21 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 from phonenumber_field.modelfields import PhoneNumberField
+import datetime
+from django.urls import reverse
+
+
+class Schedule(models.Model):
+    title = models.CharField(max_length=200)
+    start_time = models.DateTimeField(default=datetime.date.today)
+
+    def __str__(self):
+        return self.title
+    @property
+    def get_calendar_url(self):
+        url = reverse('schedule_edit', args=(self.id,))
+        return f'<p>{self.title}</p><a href="{url}">edit</a>'
+ 
 
 
 # Create your models here.

@@ -1,7 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from klin_api.models import User
-
+ 
+from autoslug import AutoSlugField
+ 
 
 # Create your models here.
 
