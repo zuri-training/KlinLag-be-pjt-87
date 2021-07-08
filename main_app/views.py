@@ -13,6 +13,10 @@ from django.utils.http import urlsafe_base64_encode
 from .tokens import account_activation_token
 from django.template.loader import render_to_string
 from django.contrib.auth.decorators import login_required
+from rest_framework.reverse import reverse_lazy
+from django.views.generic.list import ListView
+from .utils import Calendar
+from .models import Schedule
 
 
 def activation_sent_view(request):
@@ -178,3 +182,20 @@ def edit_profile(request):
         'p_form': p_form,
     }
     return render(request, 'edit_profile.html', context)
+
+
+class CalendarView(ListView):
+    model = Schedule
+    template_name = 'components/calendar.html'
+    success_url = reverse_lazy("calendar")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        date = get_date(self.request.GET.get('month', None))
+        cal = Calendar(date.year, date.month)
+        html_cal = calendar.formatmonth(withyear=True)
+        context['calendar'] = mark_safe(html_cal)
+        context[prev_month] = prev_month(date)
+        context[next_month] = next_month(date)
+
+        return context

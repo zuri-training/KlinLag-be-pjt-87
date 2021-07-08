@@ -17,6 +17,7 @@ urlpatterns = [
     path('logout/', views.logout_request, name='logout'),
     path('edit-profile/', views.edit_profile, name='edit_profile'),
     path('my-profile/', views.my_profile, name='my_profile'),
+    path(r'^calendar/$', views.CalendarView.as_view(), name='calendar'),
 ]
 
 if settings.DEBUG:

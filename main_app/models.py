@@ -1,11 +1,21 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from klin_api.models import User
- 
 from autoslug import AutoSlugField
- 
+import datetime
+from django.urls import reverse
 
-# Create your models here.
+
+class Schedule(models.Model):
+    title = models.CharField(max_length=200)
+    start_time = models.DateTimeField(default=datetime.date.today)
+
+    def __str__(self):
+        return self.title
+    @property
+    def get_calendar_url(self):
+        url = reverse('schedule_edit', args=(self.id,))
+        return f'<p>{self.title}</p><a href="{url}">edit</a>'
 
 
 class Profile(models.Model):
