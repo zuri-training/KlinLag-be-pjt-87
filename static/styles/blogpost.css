@@ -10,12 +10,12 @@ a{
 li{
   list-style: none;
 }
-/* utility classes */
-.container{
-  max-width: 900px;
-  margin:20px auto;
-  padding: 1rem;
-}
+/*!* utility classes *!*/
+/*.container{*/
+/*  max-width: 900px;*/
+/*  margin:20px auto;*/
+/*  padding: 1rem;*/
+/*}*/
 .underline{
   text-decoration: underline;
 }
@@ -61,7 +61,7 @@ li{
 /* showcase */
 .showcase{
   background: linear-gradient(rgba(0,0,0,0.5),
-  rgba(0,0,0,0.4)), url('./assets/hero-2.png')no-repeat center center/cover;
+  rgba(0,0,0,0.4)), url('../assets/hero-2.png')no-repeat center center/cover;
   height: 60vh;
 }
 .showcase-content{
