@@ -21,7 +21,7 @@
             {% for posts in blogpost_list %}
             <div class="post">
               <img src="{{ posts.image.url }}" alt="image">
-              <h3 href="{% url 'main_app:post_detail' posts.pk %}" class="text-green py-1">{{ posts.title }}</h3>
+              <a href="{% url 'main_app:post_detail' posts.pk %}"><h3  class="text-green py-1">{{ posts.title }}</h3></a>
               <p class="fs-5">{{ posts.body|truncatewords:10}}</p>
               <span class="fs-6 py-2">
                 <p>{{ posts.created}} | 5min Read</p>

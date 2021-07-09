@@ -9,9 +9,9 @@
         </div>
     <main>
         <h1>{{ post.title}}</h1>
-        <p>{{ post.created}} | 5 min read | {{ post.author }}</p><br><br>
+        <p>{{ post.created}} | 5 min read | By {{ post.author.first_name }}</p><br><br>
         <p>
-            {{ post.body }}
+            {{ post.body|linebreaks}}
         </p>
         <div class="icons">
         <img src="../../static/assets/like.png" alt="like image"> 975
