@@ -9,32 +9,37 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap" rel="stylesheet">
   <!-- Styling -->
-  <link rel="stylesheet" href="./styles/navbarfooter.css">
-  <title>Navbar and Footer</title>
+    <link href="../../static/styles/sign-in.css" rel="stylesheet" >
+  <link rel="stylesheet" href="../../static/styles/navbarfooter.css">
+
+    {% block title %}
+    {% endblock %}
+
 </head>
 <body>
   <nav class="navbar">
     <div class="nav-item">
       <div class="left">
-        <img src="./assets/logo.png" alt="LOGO">
+        <img src="../../static/assets/logo.png" alt="LOGO">
       </div>
       <div class="right">
         <div class="nav-links">
-          <a href="/">HOME</a>
-          <a href="/">ABOUT US</a>
+          <a href="{% url 'main_app:index' %}">HOME</a>
+          <a href="{% url 'main_app:about' %}">ABOUT US</a>
           <a href="/">HOW IT WORKS</a>
           <a href="/">CONTACT US</a>
-          <a href="/">BLOG</a>
+          <a href="{% url 'main_app:blog'%}">BLOG</a>
         </div>
       </div>
     </div>
   </nav>
-
+{% block content %}
+  {% endblock %}
   <footer class="footer">
     <div class="btm-content">
       <div class="item">
         <div class="btm-logo">
-          <img src="./assets/logo-white.png" alt="btm-logo">
+          <img src="../../static/assets/logo-white.png" alt="btm-logo">
         </div>
         <div class="input-area">
           <p class="input-text">SUBSCRIBE TO OUR NEWSLETTER</p>
@@ -76,11 +81,11 @@
     </div>
     <div class="connect">
       <div class="line">
-        <img src="./assets/line.png" alt="line">
+        <img src="../../static/assets/line.png" alt="line">
       </div>
       <h4 class="connect-text">CONNECT WITH US</h4>
       <div class="line">
-        <img src="./assets/line.png" alt="line">
+        <img src="../../static/assets/line.png" alt="line">
       </div>
     </div>
     <div class="connect-icons">

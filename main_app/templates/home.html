@@ -1,0 +1,14 @@
+{% extends 'base3.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block head %}
+{#<html>Stay tuned bitches#}
+{#<div>#}
+{#    <a href="{% url 'main_app:logout' %}">Logout</a>#}
+{#</div>#}
+{#</html>#}
+                    <h2 class="title">Welcome</h2>
+
+                    <a href="{% url 'main_app:my_profile' %}"><button class="btn btn--green">My Profile</button></a>
+                    <a href="{% url 'main_app:logout' %}"><button class="btn btn-secondary">Logout</button></a>
+{% endblock %}

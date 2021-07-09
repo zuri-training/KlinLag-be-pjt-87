@@ -28,7 +28,8 @@ INSTALLED_APPS = [
     'main_app', # This is the main application
     'klin_api',
     'djoser',
-    'crispy_forms'
+    'crispy_forms',
+    'widget_tweaks'
  
 ]
 

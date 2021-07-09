@@ -1,14 +1,253 @@
-{% extends 'base.html' %}
+{% extends 'base2.html' %}
 {% load static %}
-{% load crispy_forms_tags %}
 {% block content %}
-{#<html>Stay tuned bitches#}
-{#<div>#}
-{#    <a href="{% url 'main_app:logout' %}">Logout</a>#}
-{#</div>#}
-{#</html>#}
-                    <h2 class="title">Welcome</h2>
+  <header class="header">
+    <nav class="navbar navbar-expand-lg navbar-light header__navigation">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="{% static 'assets/logo.svg' %}" alt="klinglag logo" width="100">
+        </a>
 
-                    <a href="{% url 'main_app:my_profile' %}"><button class="btn btn--green">My Profile</button></a>
-                    <a href="{% url 'main_app:logout' %}"><button class="btn btn-secondary">Logout</button></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav main-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'main_app:index' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'main_app:about' %}">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">How it works</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'main_app:blog' %}">Blog</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="header__hero">
+      <div class="container">
+        <div class="row d-flex py-30 align-content-center">
+          <div class="col-5">
+            <h1 class="heading-primary">re-use the <span style="color: #2BA84A;
+              ">refuse</span></h1>
+            <p class="heading-text mb-3">Occaecat elit in dolor ut esse culpa et ipsum sint elit fugiat. Nulla ad
+              exercitation laboris ut mollit aliquip magna. Occaecat occaecat pariatur deserunt commodo irure ipsum
+              aliqua velit.
+            </p>
+            <div class="group-btn">
+              <a href="{% url 'main_app:landing' %}" class="btn btn-primary mr-2">Get Started</a>
+              <a href="{% url 'main_app:login' %}" class="btn btn-alt">Sign In</a>
+            </div>
+          </div>
+          <div class="col">
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </header>
+
+  <section class="who-we-are py-7">
+    <div class="container">
+      <div class="row d-flex align-items-center">
+        <div class="col-6">
+          <img src="{% static 'assets/image%201.svg' %}" alt="" class="img">
+        </div>
+        <div class="col-6">
+          <h3 class="heading-tertiary">Who we are</h3>
+          <h2 class="heading-secondary">Occaecat elit in dolor ut esse culpa et ipsum sint
+          </h2>
+          <p class="heading-text mb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et mauris libero
+            suspendisse in urna, fusce imperdiet aliquet. Tellus, mollis commodo turpis netus ultrices ut. Senectus in a
+            vestibulum aliquet amet ornare tellus egestas. Condimentum sodales a faucibus eu enim.</p>
+
+          <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-it-works py-7">
+    <div class="container">
+      <div class="row mb-10">
+        <div class="col-5">
+          <h3 class="heading-tertiary">How it works</h3>
+          <h2 class="heading-secondary">Occaecat elitT in dolor ut esse culpa et ipsum sint
+          </h2>
+        </div>
+        <div class="col"></div>
+      </div>
+      <div class="row ">
+        <div class="col ">
+          <div class="icon-box">
+            <div class="icon-box__icon">
+              <img src="{% static 'assets/pickup.png' %}" alt="pickup" class="icon">
+            </div>
+            <h1 class="icon-box__title">Pick-up</h1>
+            <div class="icon-box__content">
+              <p class="icon-box__text">reprehenderit non est enim. Sunt mollit officia reprehenderit in et. Ex occaecat
+                aliqua fugiat duis veniam officia sit sint</p>
+            </div>
+          </div>
+        </div>
+        <div class="col ">
+          <div class="icon-box">
+            <div class="icon-box__icon">
+              <img src="{% static 'assets/bounty.png' %}" alt="pickup" class="icon">
+            </div>
+            <h1 class="icon-box__title">Drop-off</h1>
+            <div class="icon-box__content">
+              <p class="icon-box__text">reprehenderit non est enim. Sunt mollit officia reprehenderit in et. Ex occaecat
+                aliqua fugiat duis veniam officia sit sint</p>
+            </div>
+          </div>
+        </div>
+        <div class="col ">
+          <div class="icon-box">
+            <div class="icon-box__icon">
+              <img src="{% static 'assets/database.png' %}" alt="pickup" class="icon">
+            </div>
+            <h1 class="icon-box__title">Earn-points</h1>
+            <div class="icon-box__content">
+              <p class="icon-box__text">reprehenderit non est enim. Sunt mollit officia reprehenderit in et. Ex occaecat
+                aliqua fugiat duis veniam officia sit sint</p>
+            </div>
+          </div>
+        </div>
+        <div class="col ">
+          <div class="icon-box">
+            <div class="icon-box__icon">
+              <img src="{% static 'assets/cash.png' %}" alt="pickup" class="icon">
+            </div>
+            <h1 class="icon-box__title">Cash Redemption</h1>
+            <div class="icon-box__content">
+              <p class="icon-box__text">reprehenderit non est enim. Sunt mollit officia reprehenderit in et. Ex occaecat
+                aliqua fugiat duis veniam officia sit sint</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <section class="what-goes-where">
+    <!-- <div class="container"> -->
+    <div class="row">
+      <div class="col-8 d-flex flex-column justify-content-evenly">
+        <div class="row">
+          <div class="col-3">
+          </div>
+          <div class="col-6">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="image-box">
+                <div class="image-box__image">
+                  <img src="{% static 'assets/glass%20bottles.svg' %}" alt="glass bottles" class="image">
+                </div>
+                <h1 class="image-box__title">Bottles</h1>
+              </div>
+              <div class="image-box">
+                <div class="image-box__image">
+                  <img src="{% static 'assets/plastic.svg'%}" alt="glass bottles" class="image">
+                </div>
+                <h1 class="image-box__title">Plastic</h1>
+              </div>
+              <div class="image-box">
+                <div class="image-box__image">
+                  <img src="{% static 'assets/carton.svg'%}" alt="cartons" class="image">
+                </div>
+                <h1 class="image-box__title">Cartons</h1>
+              </div>
+              <div class="image-box">
+                <div class="image-box__image">
+                  <img src="{% static 'assets/Document-files.svg'%}" alt="glass bottles" class="image">
+                </div>
+                <h1 class="image-box__title">Papers</h1>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">
+          </div>
+          <div class="col-6">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="image-box">
+                <div class="image-box__image">
+                  <img src="{% static 'assets/plastic-bottles.svg'%}" alt="glass bottles" class="image">
+                </div>
+                <h1 class="image-box__title">Glass</h1>
+              </div>
+              <div class="image-box">
+                <div class="image-box__image">
+                  <img src="{% static 'assets/plastic.svg'%}" alt="glass bottles" class="image">
+                </div>
+                <h1 class="image-box__title">Plastic</h1>
+              </div>
+              <div class="image-box">
+                <div class="image-box__image">
+                  <img src="{% static 'assets/carton.svg'%}" alt="cartons" class="image">
+                </div>
+                <h1 class="image-box__title">Cartons</h1>
+              </div>
+              <div class="image-box">
+                <div class="icon-box__icon">
+                  <h1 class="text-white">more &raquo;</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="py-20 px-7 text-center bg-primary">
+          <h2 class="heading-secondary text-white">
+            Confused about how to sort or
+            what is recyclable?
+          </h2>
+          <p class="heading-text text-white pt-7">Find out what goes where</p>
+        </div>
+      </div>
+    </div>
+    <!-- </div> -->
+  </section>
+
+  <section class="partners py-7">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h3 class="heading-tertiary text-center">Partners</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="partners-img">
+            <img src="{% static 'assets/regroup.png'%}" alt="regroup" class="partners-logo">
+            <img src="{% static 'assets/nrc.png'%}" alt="nrc" class="partners-logo">
+            <img src="{% static 'assets/green-planet.png'%}" alt="green planet" class="partners-logo">
+            <img src="{% static 'assets/platship.png'%}" alt="platship" class="partners-logo">
+            <img src="{% static 'assets/lawma.png'%}" alt="lawma" class="partners-logo">
+            <img src="{% static 'assets/pampers.png'%}" alt="pampers" class="partners-logo">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer  -->
 {% endblock %}
