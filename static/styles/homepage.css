@@ -109,6 +109,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #2BA84A;
 }
 
 .navbar-nav.main-nav li {
@@ -121,9 +122,10 @@ body {
 .navbar-nav.main-nav a {
   padding-right: 0.8rem !important;
   padding-left: 0.8rem !important;
-  color: #fff !important;
+  color: #e0e0e0 !important;
   text-transform: uppercase;
   font-weight: 700;
+
 }
 
 /***********************************
@@ -315,3 +317,24 @@ body {
 .footer-nav-secondary a {
   color: #828282;
 }
+
+
+@media (max-width: 850px) {
+    .container{
+      display: flex;
+      flex-direction: column;
+    }
+  }
+@media (max-width: 850px) {
+    .partners-img{
+      display: flex;
+      flex-direction: column;
+    }
+  }
+@media (max-width: 850px) {
+    {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+

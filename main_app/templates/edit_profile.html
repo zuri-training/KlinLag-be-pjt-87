@@ -1,8 +1,22 @@
-{% extends 'base3.html' %}
+{% extends 'baseauth.html' %}
 {% load static %}
-{% load crispy_forms_tags %}
-{% block head %}
-<h5 class="card-title text-center"><b>Update Profile</b></h5>
+{% block title %}
+{#    <link rel="stylesheet" media="all" href={% static "vendor/select2/select2.min.css"%} >#}
+{#    <link rel="stylesheet" media="all" href={% static "vendor/datepicker/daterangepicker.css"%} >#}
+    <link rel="stylesheet" href="../../static/styles/usersignup.css">
+    <!-- Main CSS-->
+    <link rel="stylesheet" media="all" href={% static "css/main.css"%} >
+    <title>Klin Lag</title>
+{% endblock %}
+{% block card %}
+    <div class="p-t-180 p-b-100 font-lato">
+        <div class="wrapper wrapper--w780">
+            <div class="card card-3">
+                <div class="card-heading"></div>
+                <div class="card-body">
+{% block body %}
+    {% load crispy_forms_tags %}
+    <h5 class="card-title text-center"><b>Update Profile</b></h5>
           <form class="form-signin" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <fieldset class="form-group">
@@ -23,5 +37,10 @@
               >
             </div>
           </form>
+{% endblock %}
+                 </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
 
-                {% endblock %}

@@ -15,7 +15,7 @@ header{
     padding-top: 30px;
     min-height: 70px;
     font-size: 16px;
-    
+
 }
 
 header a{
@@ -31,7 +31,7 @@ header li{
     display: inline;
     padding: 0 20px 0 20px;
     color: black ;
-   
+
 }
 
 header #branding {
@@ -76,8 +76,8 @@ header a:hover{
   border-top-right-radius: 70px 70px;
   border-bottom-left-radius: 70px 70px;
   height: 400px;
-  
-  
+
+
 }
 .about-item2 {
   background-color: #FDF4DB;
@@ -105,9 +105,9 @@ h3{
 }
 /* *********************SERVICES*********************** */
 
-  .container{
-    display: flex
-  }
+  /*.container{*/
+  /*  display: flex*/
+  /*}*/
   @media (max-width: 850px) {
     .container{
       display: flex;
@@ -183,7 +183,7 @@ h3{
 /**************************FOOTER**************************/
 
 footer{
-  
+
   background-color: #2ba84a;
   color: white;
   border-top: 15px solid #9cc7a6;
@@ -234,7 +234,7 @@ footer h4{
 .social-icons{
   display: flex;
   margin-left: -50px;
-    
+
 }
 .social-icons li{
   margin:20px;
@@ -243,7 +243,7 @@ footer h4{
 .left{
  display: flex;
   flex: 1;
-  
+
 }
 .right{
   display: flex;
@@ -287,4 +287,4 @@ footer h4{
 .footer-nav-secondary a {
   color: #fff;
 }
- 
+

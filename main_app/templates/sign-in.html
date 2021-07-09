@@ -1,11 +1,12 @@
-{% extends 'navbarfooter.html' %}
+{% extends 'baseauth.html' %}
 {% load widget_tweaks %}
 {% block title %}
 <title>Sign In</title>
     <link rel="stylesheet" href="../../static/styles/sign-in.css">
+    <link rel="stylesheet" href="../../static/styles/companysignup.css">
 {% endblock %}
 
-{% block content %}
+{% block body %}
     <div class="container">
         
          <div class="test">
@@ -29,7 +30,7 @@
         <i class="fa fa-eye fa-lg"></i>
     </div>
        </div>
-       <div class="forgot"><span> Forgot Password ?</span> <a href="{% url 'password_reset' %}"><span class="reset"> Reset Password ?</span> </a></div>
+       <div class="sign-in"></div>
        
        <button class="sign">SIGN IN</button>
        <span> or </span>
@@ -45,10 +46,12 @@
 
        
        </form>
-           <div class="sign-in"><span> Don't have an account ?</span> <a href="{% url 'main_app:landing' %}"><button class="sign-btn"> SIGN UP</button></a></div>
+           <div class="sign-in col"><span> Don't have an account ?</span> <a href="{% url 'main_app:landing' %}"><button class="sign-btn"> SIGN UP</button></a>
+
+           </div>
          </div>
          </div>
 
-
+<span> Forgot Password ?</span> <a href="{% url 'password_reset' %}"><span class="reset"> Reset Password ?</span> </a>
          <!-- FOOTER -->
 {% endblock %}
