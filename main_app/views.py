@@ -16,7 +16,7 @@ from django.contrib.auth.decorators import login_required
 from rest_framework.reverse import reverse_lazy
 from django.views.generic.list import ListView
 from .utils import Calendar
-from .models import Schedule
+from .models import Schedule, Blogpost
 
 
 def activation_sent_view(request):
@@ -61,7 +61,7 @@ def signup_user(request):
             return redirect('activation_sent')
     else:
         form = UserSignUpForm
-    return render(request, 'signup_user.html', {'signup_user_form': form})
+    return render(request, 'usersignup.html', {'signup_user_form': form})
 
 
 def signup_agency(request):
@@ -87,7 +87,7 @@ def signup_agency(request):
             return redirect('activation_sent')
     else:
         form = AgencySignUpForm
-    return render(request, 'signup_agency.html', {'signup_agency_form': form})
+    return render(request, 'companysignup.html', {'signup_agency_form': form})
 
 
 def login_request(request):
@@ -112,7 +112,7 @@ def login_request(request):
         else:
             messages.error(request, 'Invalid username or password.')
     form = AuthenticationForm()
-    return render(request=request, template_name='login.html', context={'login_form': form})
+    return render(request=request, template_name='sign-in.html', context={'login_form': form})
 
 
 def login_agency(request):
@@ -148,8 +148,8 @@ def logout_request(request):
     return redirect("main_app:login")
 
 @login_required
-def index(request):
-    return render(request, 'index.html')
+def home(request):
+    return render(request, 'home.html')
 
 
 def landing(request):
@@ -157,6 +157,11 @@ def landing(request):
     if user.is_authenticated:
         return redirect('main_app:home')
     return render(request, 'landing.html')
+
+
+def index(request):
+    return render(request, 'index.html')
+
 
 @login_required
 def my_profile(request):
@@ -186,16 +191,41 @@ def edit_profile(request):
 
 class CalendarView(ListView):
     model = Schedule
-    template_name = 'components/calendar.html'
+    template_name = 'calendar.html'
     success_url = reverse_lazy("calendar")
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        date = get_date(self.request.GET.get('month', None))
-        cal = Calendar(date.year, date.month)
-        html_cal = calendar.formatmonth(withyear=True)
-        context['calendar'] = mark_safe(html_cal)
-        context[prev_month] = prev_month(date)
-        context[next_month] = next_month(date)
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     date = get_date(self.request.GET.get('month', None))
+    #     cal = Calendar(date.year, date.month)
+    #     html_cal = calendar.formatmonth(withyear=True)
+    #     context['calendar'] = mark_safe(html_cal)
+    #     context[prev_month] = prev_month(date)
+    #     context[next_month] = next_month(date)
+    #
+    #     return context
 
-        return context
+
+class BlogListView(ListView):
+    model = Blogpost
+    template_name = 'blog-post2.html'
+
+
+def post_detail(request, pk):
+    post = get_object_or_404(Blogpost, pk =pk)
+    user = request.user
+    if request.method == 'POST':
+        form = NewCommentForm(request.POST)
+        if form.is_valid():
+            data = form.save(commit=False)
+            data.post = post
+            data.author = user
+            data.save()
+            return redirect('main_app:post_detail', pk = pk)
+    else:
+            form = NewCommentForm
+    return render(request, 'blogpost1.html', {'post': post, 'comment_form':form})
+
+
+def about(request):
+    return render(request, 'About.html')

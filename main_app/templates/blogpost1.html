@@ -1,0 +1,71 @@
+{% extends 'navbarfooter.html' %}
+{% block title %}
+    <title>{{ post.title }}</title>
+ <link rel="stylesheet" href="../../static/styles/blogpost1.css">
+{% endblock %}
+{% block content %}
+    <div class="image2">
+        <img src="../../static/assets/hero-1.png" alt="waste bin images">
+        </div>
+    <main>
+        <h1>{{ post.title}}</h1>
+        <p>{{ post.created}} | 5 min read | By {{ post.author.first_name }}</p><br><br>
+        <p>
+            {{ post.body|linebreaks}}
+        </p>
+        <div class="icons">
+        <img src="../../static/assets/like.png" alt="like image"> 975
+       
+        <img src="../../static/assets/speech_bubble.png" alt="speech image"> 87
+       
+        <img src="assests/share.png" alt="share image">
+        </div>
+
+        <div class="Btns_container">
+            
+            <button>Waste</button>
+            <button>Sustainable Waste</button>
+            <button>Lagos</button>
+            <button>Recycling</button>
+            <button>Recycling</button>
+            <button>Waste</button>
+            <button>WHO</button>
+            <button>Lagos</button>
+            <button>Effects</button>
+        </div>
+        <section class="Side">
+             
+             <div class="Button_container">
+                <p>Leave a comment</p>
+            <div class="Input1">
+            
+                <button>Enter a name</button>
+            </div>     
+            <div class="Input2">
+                <button>Type message here</button>
+            </div>
+            <div class="Input3">
+                <button>SEND</button>
+            
+            </div>
+            </div>
+
+            <div class="Container">
+                <div class="side1">
+                <a href="#">Solutions for sustainable waste<br> disposal</a>
+                <p>Jan 20, 2021 | 5 min read</p>
+                <a href="#">Waste disposal-Different<br> methods</a>
+                <p>Jan 20, 2021 | 5 min read</p>
+            </div>
+            <div class="side2">
+                <a href="#">Solutions for sustainable waste</a>
+                <p>Jan 20, 2021 | 5 min read</p>
+                <a href="#">Solutions for sustainable waste<br> disposal</a>
+                <p>Jan 20, 2021 | 5 min read</p>
+                <a href="#">Solutions for sustainable waste</a>
+                <p>Jan 20, 2021 | 5 min read</p>
+            </div>
+            </div>
+        </section>
+    </main>
+    {% endblock %}

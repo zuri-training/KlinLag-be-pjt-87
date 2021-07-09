@@ -29,8 +29,9 @@ class Profile(models.Model):
 
 class Blogpost(models.Model):
     title = models.CharField(max_length=250)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     body = models.TextField()
-    image = models.ImageField(blank=True)
+    image = models.ImageField(default='default.png', upload_to='blog_pics')
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -39,6 +40,9 @@ class Blogpost(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('post_detail', args=[str(self.pk)])
 
 
 class Comment(models.Model):

@@ -8,8 +8,9 @@ from django.conf import settings
 app_name = 'main_app'
 
 urlpatterns = [
-    path('', views.landing, name='landing'),
-    path('home/', views.index, name='home'),
+    path('', views.index, name='index'),
+    path('register/', views.landing, name='landing'),
+    path('home/', views.home, name='home'),
     path('login/', views.login_request, name='login'),
     path('login-agency/', views.login_agency, name='login_agency'),
     path('signup/user/', views.signup_user, name='signup_user'),
@@ -17,7 +18,10 @@ urlpatterns = [
     path('logout/', views.logout_request, name='logout'),
     path('edit-profile/', views.edit_profile, name='edit_profile'),
     path('my-profile/', views.my_profile, name='my_profile'),
-    path(r'^calendar/$', views.CalendarView.as_view(), name='calendar'),
+    path('calendar/', views.CalendarView.as_view(), name='calendar'),
+    path('post/<int:pk>/', views.post_detail, name='post_detail'),
+    path('blog/', views.BlogListView.as_view(), name='blog'),
+    path('about/', views.about, name='about'),
 ]
 
 if settings.DEBUG:
