@@ -119,3 +119,22 @@ li{
 .article img{
  width: 180px;
 }
+
+@media (max-width: 850px) {
+    .container{
+      display: flex;
+      flex-direction: column;
+    }
+  }
+@media (max-width: 850px) {
+    .others{
+      display: flex;
+      flex-direction: column;
+    }
+  }
+@media (max-width: 850px) {
+    .posts{
+      display: flex;
+      flex-direction: column;
+    }
+  }
