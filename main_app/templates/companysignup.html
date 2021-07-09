@@ -14,10 +14,12 @@
 
         <div class="col-lg-6  col-md-6 col-sm-12 px-7">
           <h1 class="heading-primary pt-7">Getting Started</h1>
-          <form class="sign-up__form mb-3" method="POST" >
+          <form class="sign-up__form mb-3" method="POST" novalidate >
               {% csrf_token %}
+
             <div class="mb-3">
               <label for="company-name" class="form-label">Company Name</label>
+                {{ signup_agency_form.first_name.errors }}
 {#              <input type="text" class="form-control shadow-none" id="company-name" placeholder="Company Name">#}
                 {% render_field signup_agency_form.first_name type="text" class="form-control shadow-none" id="company-name" placeholder="Company Name" %}
 
@@ -25,12 +27,14 @@
               {% csrf_token %}
             <div class="mb-3">
               <label for="company-email" class="form-label">Company Email</label>
+                {{ signup_agency_form.email.errors }}
 {#              <input type="email" class="form-control shadow-none" id="company-email" placeholder="john@example.com">#}
                 {% render_field signup_agency_form.email  type="email" class="form-control shadow-none" id="company-email" placeholder="john@example.com" %}
             </div>
               {% csrf_token %}
             <div class="mb-3">
               <label for="contact" class="form-label">Contact</label>
+                {{ signup_agency_form.phone.errors }}
 {#              <input type="text" class="form-control shadow-none" id="contact" placeholder="Contact">#}
                 {% render_field signup_agency_form.phone  type="text" class="form-control shadow-none" id="contact" placeholder="Contact"%}
             </div>
@@ -38,7 +42,9 @@
             <div class="row mb-3">
               <div class="col col-xs-12">
                 <label for="password" class="form-label">Password</label>
+                  {{ signup_agency_form.password1.errors }}
                 <div class="input-group">
+
 {#                  <input type="password" id="password" class="form-control shadow-none" aria-label="Password">#}
                     {% render_field signup_agency_form.password1  type="password" id="password" class="form-control shadow-none" aria-label="Password"%}
                   <span class="input-group-text"><img src="../../static/assets/eye.svg" alt="hide"></span>
@@ -47,7 +53,9 @@
                 {% csrf_token %}
               <div class="col-xs-12">
                 <label for="confirm" class="form-label">Confirm Password</label>
+                  {{ signup_agency_form.password2.errors }}
                 <div class="input-group">
+
 {#                  <input type="password" id="confirm" class="form-control shadow-none" aria-label="Confirm Password">#}
                   {% render_field signup_agency_form.password2  type="password" id="confirm" class="form-control shadow-none" aria-label="Confirm Password"%}
                     <span class="input-group-text"><img src="../../static/assets/eye.svg" alt="hide"></span>

@@ -2,7 +2,7 @@ from pathlib import Path
 import json
 import os
 import environ, django_heroku
- 
+from django.contrib.messages import constants as messages
 BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env()
 environ.Env.read_env()
@@ -173,6 +173,14 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'pjt87klinlag@gmail.com'
 EMAIL_HOST_PASSWORD = os.getenv('PASS')
+
+MESSAGE_TAGS = {
+        messages.DEBUG: 'alert-secondary',
+        messages.INFO: 'alert-info',
+        messages.SUCCESS: 'alert-success',
+        messages.WARNING: 'alert-warning',
+        messages.ERROR: 'alert-danger',
+ }
 
 django_heroku.settings(locals())
 LOGIN_URL = 'main_app:login'

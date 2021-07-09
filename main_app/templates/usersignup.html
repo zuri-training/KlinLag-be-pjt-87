@@ -13,28 +13,32 @@
       <div class="row">
         <div class="col-lg-7 col-md-7 col-sm-12 pl-10">
           <h1 class="heading-primary pt-7">Getting Started</h1>
-          <form class="row sign-up__form mb-3" action="" method="post">
+          <form class="row sign-up__form mb-3"  method="post" novalidate>
               {% csrf_token %}
             <div class="col-md-6 mb-3">
               <label for="firstname" class="form-label">First Name</label>
+                {{ signup_user_form.first_name.errors }}
 {#              <input type="text" class="form-control shadow-none" id="firstname">#}
                 {% render_field signup_user_form.first_name  type="text" class="form-control shadow-none" id="firstname"%}
             </div>
 
             <div class="col-md-6 mb-3">
               <label for="lastname" class="form-label">Last Name</label>
+                {{ signup_user_form.last_name.errors }}
 {#              <input type="text" class="form-control shadow-none" id="lastname">#}
                 {% render_field signup_user_form.last_name  type="text" class="form-control shadow-none" id="lastname"%}
             </div>
 
             <div class="col-md-12 mb-3">
               <label for="Phone" class="form-label">Phone</label>
+                {{ signup_user_form.phone.errors }}
 {#              <input type="text" class="form-control shadow-none" id="Phone">#}
                 {% render_field signup_user_form.phone  type="text" class="form-control shadow-none" id="Phone"%}
             </div>
 
             <div class="col-md-12 mb-3">
               <label for="user-email" class="form-label">Email</label>
+                {{ signup_user_form.email.errors }}
 {#              <input type="email" class="form-control shadow-none" id="user-email">#}
                 {% render_field signup_user_form.email type="email" class="form-control shadow-none" id="user-email" %}
             </div>
@@ -42,6 +46,7 @@
             <div class="row mb-3">
               <div class="col-md-6 col-xs-12">
                 <label for="password" class="form-label">Password</label>
+                  {{ signup_user_form.password1.errors }}
                 <div class="input-group">
 {#                  <input type="password" id="password" class="form-control shadow-none" aria-label="Password">#}
                     {% render_field signup_user_form.password1  type="password" id="password" class="form-control shadow-none" aria-label="Password"%}
@@ -50,6 +55,7 @@
               </div>
               <div class="col-md-6 col-xs-12">
                 <label for="confirm" class="form-label">Confirm Password</label>
+                  {{ signup_user_form.password2.errors }}
                 <div class="input-group">
 {#                  <input type="password" id="confirm" class="form-control shadow-none" aria-label="Confirm Password">#}
                     {% render_field signup_user_form.password2  type="password" id="confirm" class="form-control shadow-none" aria-label="Confirm Password"%}

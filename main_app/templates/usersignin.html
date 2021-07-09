@@ -1,6 +1,6 @@
 {% extends 'baseauth.html' %}
 {% load widget_tweaks %}
-
+{% include 'messages.html' %}
     {% block title %}
   <link rel="stylesheet" href="../../static/styles/usersignup.css">
   <title>Klin Lag | Sign In - User</title>
@@ -13,14 +13,12 @@
       <div class="row">
         <div class="col-lg-7 col-md-7 col-sm-12 pl-10">
           <h1 class="heading-primary pt-7">Welcome Back</h1>
-          <form class="row sign-up__form mb-3" action="" method="post">
+          <form class="row sign-up__form mb-3"  method="post" novalidate>
               {% csrf_token %}
-
-
-
 
             <div class="col-md-12 mb-3">
               <label for="user-email" class="form-label">Email</label>
+                {{ login_form.non_field_errors }}
 {#              <input type="email" class="form-control shadow-none" id="user-email">#}
                 {% render_field login_form.username type="email" class="form-control shadow-none" id="user-email" %}
             </div>
