@@ -109,11 +109,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #2BA84A;
+
+
 }
 
 .navbar-nav.main-nav li {
   position: relative;
+  background-color: #2ba84a;
+  border-radius: 1.5rem;
 }
 .navbar-link {
   color: #fff !important;
@@ -122,7 +125,7 @@ body {
 .navbar-nav.main-nav a {
   padding-right: 0.8rem !important;
   padding-left: 0.8rem !important;
-  color: #e0e0e0 !important;
+  color: #ffffff !important;
   text-transform: uppercase;
   font-weight: 700;
 
