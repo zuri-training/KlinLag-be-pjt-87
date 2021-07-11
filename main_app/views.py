@@ -108,13 +108,11 @@ def login_request(request):
                 login(request, user)
                 messages.info(request, f'You are now logged in as {username}')
                 return redirect('main_app:home')
-            elif not user.is_active :
-                messages.error(request, 'Account has not been activated')
             else:
                 messages.error(request, 'Invalid username or password')
 
         else:
-            messages.error(request, 'Invalid username or password.')
+            messages.error(request, 'Account has not been activated or details have not been entered correctly. ')
     form = AuthenticationForm()
     return render(request=request, template_name='usersignin.html', context={'login_form': form})
 
