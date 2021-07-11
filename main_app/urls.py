@@ -11,7 +11,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('register/', views.landing, name='landing'),
     path('home/', views.home, name='home'),
-    path('login/', views.login_request, name='login'),
+    path('login-user/', views.login_request, name='login-user'),
     path('login-agency/', views.login_agency, name='login_agency'),
     path('signup/user/', views.signup_user, name='signup_user'),
     path('signup/agency/', views.signup_agency, name='signup_agency'),
@@ -24,6 +24,7 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('recycle-pickup/', views.recycle_pickup, name= 'recycle-pickup'),
     path('recycle-dropoff/', views.recycle_drop_off, name= 'recycle-dropoff'),
+    path('login/', views.sign_up_as, name='login'),
 ]
 
 if settings.DEBUG:

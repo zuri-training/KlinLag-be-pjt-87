@@ -11,6 +11,12 @@ a{text-decoration: none;}
 li{
     list-style: none;
 }
+p{
+    font-size: 1.6rem;
+}
+label{
+    font-size: 16px;
+}
 
 .body-container{
     max-width: 1000px;
@@ -54,6 +60,7 @@ li{
     background: #2BA84A;
 }
 
+
 header{
     height: 70vh;
     background:linear-gradient(rgba(0,0,0,0.5),
@@ -85,6 +92,7 @@ header p{
     padding: 15px;
     width: 70%;
     border: #2BA84A 1px solid;
+    font-size: 1.5rem;
 }
 .pickup-form .form-group input:focus{
     outline: #2BA84A 1px solid;
@@ -93,6 +101,8 @@ header p{
     width: 70%;
     border: #2BA84A 1px solid
 }
+
+
 .pickup-form .for-group label {
     display: block;
     margin: 10px 0;
@@ -106,7 +116,29 @@ header p{
 .pickup-form .for-group input:focus{
     outline: #2BA84A 1px solid;
 }
+.pickup-form .form-group select {
+    padding: 15px;
+    width: 70%;
+    border: #2BA84A 1px solid;
+}
+
+.pickup-form .form-group select:focus{
+    outline: #2BA84A 1px solid;
+}
+
+.pickup-form .form-group .select option{
+    padding: 15px;
+    width: 70%;
+    border: #2BA84A 1px solid;
+}
+
+.pickup-form .form-group .select option:focus{
+    outline: #2BA84A 1px solid;
+}
 
 button[type="submit"] {
     margin: 15px 0 0 15px;
+
+    font-size: 1.6rem;
+
 }

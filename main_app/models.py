@@ -68,18 +68,27 @@ class Waste(models.Model):
         return self.title
 
 
+class PickupTime(models.Model):
+    time_range = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.time_range
+
+
 class PickupRequest(models.Model):
     full_name = models.CharField(max_length=50)
     email = models.EmailField(max_length=50)
     phone = PhoneNumberField(null=False, blank=False)
     address = models.CharField(max_length=300)
     date = models.DateField(auto_now_add=False)
-    time = models.TimeField(auto_now_add=False)
+    time = models.ForeignKey(PickupTime, on_delete=models.CASCADE)
     waste_type = models.ManyToManyField(Waste)
     quantity = models.IntegerField()
     extra_note = models.TextField(max_length=500)
 
     def __str__(self):
         return self.full_name
+
+
 
 

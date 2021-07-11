@@ -1,3 +1,4 @@
+{% include 'messages.html' %}
 {% load widget_tweaks %}
 <!DOCTYPE html>
 <html lang="en">
@@ -16,12 +17,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
   <!-- custom styles -->
-  <link rel="stylesheet" href="../../static/styles/usersignin.css">
-  <title>Klin Lag | Sign In - User</title>
+  <link rel="stylesheet" href="../../static/styles/companysignin.css">
+  <title>Klin Lag | Sign In - Agency</title>
 </head>
 
 <body>
-{% include 'messages.html' %}
+
   <nav class="navbar navbar-expand-lg navbar-light header__navigation">
     <div class="container">
       <a class="navbar-brand" href="#">
@@ -55,73 +56,48 @@
   </nav> 
   
   <section class="sign-in py-7">
-    <div class="container-fluid">
+    <div class="container">
       <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-12 d-none d-lg-block"></div>
 
-        <div class="col-lg-5 col-md-5 col-sm-12 sign-in--image-left">
-          <!-- <div class="row">
-            <div class="col-md-12 col-sm-12 d-flex align-items-center justify-content-around push-down">
-              <h4 class="heading-tertiary">Already have an account?</h4>
-              <button type="button" class="btn btn-alt btn-lg px-5">Sign In</button>
-            </div>
-          </div> -->
-        </div> <!-- end col-5 -->
-
-        <div class="col-lg-7 col-md-7 col-sm-12 pr-10">
+        <div class="col-lg-6  col-md-12 col-sm-12 px-7">
           <h1 class="heading-primary pt-7">Welcome Back</h1>
-          <form class="row sign-in__form mb-3" action="" method="post" novalidate>
+          <form class="sign-in__form mb-3" action="" method="post" novalidate>
               {% csrf_token %}
-            <div class="col-md-12 mb-3">
-              <label for="user-email" class="form-label">Email</label>
-{#              <input type="email" class="form-control shadow-none" id="user-email">#}
-                {% render_field login_form.username type="email" class="form-control shadow-none" id="user-email"%}
+            <div class="mb-3">
+              <label for="company-email" class="form-label">Company Email</label>
+{#              <input type="email" class="form-control shadow-none" id="company-email" placeholder="john@example.com">#}
+                {% render_field login_form.username type="email" class="form-control shadow-none" id="company-email" placeholder="john@example.com"%}
             </div>
-            <div class="col-md-12 mb-3">
-              <label for="user-email" class="form-label">Password</label>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
               <div class="input-group">
-{#                <input type="password" id="password" class="form-control shadow-none" aria-label="Password">#}
-                  {% render_field login_form.password type="password" id="password" class="form-control shadow-none" aria-label="Password" %}
+{#                <input type="password" id="password" class="form-control shadow-none" placeholder="Password" aria-label="Password">#}
+                  {% render_field login_form.password type="password" id="password" class="form-control shadow-none" placeholder="Password" aria-label="Password" %}
                 <span class="input-group-text"><img src="../../static/assets/eye.svg" alt="hide"></span>
               </div>
             </div>
-
-            <div class="row mb-3">
-              <div class="col-lg-12 col-md-12 col-sm-12">
-                <div class="auth-group d-flex justify-content-between align-items-center">
-                  <p class="heading-text">Forgot Password? <a href="{% url 'password_reset' %}" class="text-primary">Reset Password</a></p>
-                  <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="rememberMe" checked>
-                    <label class="form-check-label" for="rememberMe">Remember Me</label>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="row mb-3">
-              <div class="col-md-12">
-                <div class="auth-group d-flex justify-content-between align-items-center">
-                  <button type="submit" class="btn btn-alt btn-lg px-5">Sign In</button>
-                  <p class="heading-tertiary">OR</p>
-                  <div class="social-signup">
-                    <button type="button" class="btn btn-google btn-lg me-4">Google</button>
-                    <button type="button" class="btn btn-facebook btn-lg">Facebook</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             <div class="row">
-              <div class="col-md-12 col-sm-12 d-flex align-items-center justify-content-between">
-                <h4 class="heading-tertiary">Already have an account?</h4>
-                  <a href="{% url 'main_app:login' %}"><button type="button" class="btn btn-alt btn-lg px-5">Sign Up</button></a>
+              <div class="col-lg-6 col-md-12 col-sm-12"></div>
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <button type="submit" class="btn btn-alt btn-lg px-5">Sign In</button>
               </div>
             </div>
-
           </form>
-        </div> <!-- end col-7 -->
 
-        
+          <div class="row d-flex align-items-center">
+            <div class="col-lg-6 col-md-6 col-sm-4">
+              <h4 class="heading-tertiary">Not yet a member?</h4>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-8">
+              <a href="{% url 'main_app:landing' %}"><button type="button" class="btn btn-primary btn-lg px-5">Sign Up</button></a>
+            </div>
+          </div>
+         </div> <!-- end col-4 -->
 
+
+
+        <div class="col-lg-3 col-md-3 col-sm-12 d-none d-lg-block"></div>
       </div>
     </div>
   </section>

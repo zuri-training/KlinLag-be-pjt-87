@@ -34,7 +34,10 @@ def activate(request, uidb64, token):
         user.signup_confirmation = True
         user.save()
         messages.success(request, 'Your account has been activated')
-        return redirect('main_app:login')
+        if user.is_giver:
+            return redirect('main_app:login-user')
+        if user.is_collector:
+            return redirect('main_app:login_agency')
     else:
         return render(request, 'activation_invalid.html')
 
@@ -104,15 +107,17 @@ def login_request(request):
             user = authenticate(username=username, password=password)
 
             if user is not None:
-
-                login(request, user)
-                messages.info(request, f'You are now logged in as {username}')
-                return redirect('main_app:home')
+                if user.is_giver:
+                    login(request, user)
+                    messages.info(request, f'You are now logged in as {username}')
+                    return redirect('main_app:home')
+                else:
+                    messages.error(request, 'Your account is a collectors account')
             else:
                 messages.error(request, 'Invalid username or password')
 
         else:
-            messages.error(request, 'Account has not been activated or details have not been entered correctly. ')
+            messages.error(request, 'Account has not been activated or details have not been entered correctly.')
     form = AuthenticationForm()
     return render(request=request, template_name='usersignin.html', context={'login_form': form})
 
@@ -130,17 +135,18 @@ def login_agency(request):
             user = authenticate(username=username, password=password)
 
             if user is not None:
-
-                login(request, user)
-                messages.info(request, f'You are now logged in as {username}')
-
-                return redirect('main_app:home')
+                if user.is_collector:
+                    login(request, user)
+                    messages.info(request, f'You are now logged in as {username}')
+                    return redirect('main_app:home')
+                else:
+                    messages.error(request, 'Your account is a givers account')
             else:
                 messages.error(request, 'Invalid username or password')
         else:
-            messages.error(request, 'Invalid username or password.')
+            messages.error(request, 'Account has not been activated or details have not been entered correctly.')
     form = AuthenticationForm()
-    return render(request=request, template_name='login_agency.html', context={'login_form': form})
+    return render(request=request, template_name='companysignin.html', context={'login_form': form})
 
 
 @login_required
@@ -159,6 +165,13 @@ def landing(request):
     if user.is_authenticated:
         return redirect('main_app:home')
     return render(request, 'landing.html')
+
+
+def sign_up_as(request):
+    user = request.user
+    if user.is_authenticated:
+        return redirect('main_app:home')
+    return render(request, 'signinas.html')
 
 
 def index(request):
