@@ -1,11 +1,11 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
+{% load static %}
 <head>
+    <title>Klin Lag</title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
@@ -14,24 +14,68 @@
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <!-- font -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;900&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
   <!-- custom styles -->
-  <link rel="stylesheet" href="../../static/styles/homepage.css">
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" media="all" href={% static "vendor/mdi-font/css/material-design-iconic-font.min.css"%} >
+    <link rel="stylesheet" media="all" href={% static "vendor/font-awesome-4.7/css/font-awesome.min.css"%} >
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,100;1,300&display=swap" rel="stylesheet">
+    <!-- Vendor CSS-->
+    <link rel="stylesheet" media="all" href={% static "vendor/select2/select2.min.css"%} >
+    <link rel="stylesheet" media="all" href={% static "vendor/datepicker/daterangepicker.css"%} >
 
-  <title>Klin Lag | Home</title>
+    <!-- Main CSS-->
+    <link rel="stylesheet" media="all" href={% static "css/main.css"%} >
+
 </head>
 
 <body>
-{% block content %}
-{% endblock %}
+
+  <nav class="navbar navbar-expand-lg navbar-light header__navigation">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="assets/logo.svg" alt="klinglag logo" width="100">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav main-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'main_app:index' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'main_app:about' %}">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">How it works</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'main_app:blog' %}">Blog</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+          {% block head %}
+          {% endblock %}
 
 <footer class="footer py-7 mt-10">
     <div class="container">
       <div class="row">
         <div class="col-lg-5 col-md-5 col-sm-12">
-          <img src="../../static/assets/logo-white.svg" alt="footer logo" width="160" class="footer-logo">
+          <img src="assets/logo-white.svg" alt="footer logo" width="160" class="footer-logo">
           <div class="newsletter">
             <p class="newsletter-title">subscribe to our newsletter</p>
             <form class="d-flex align-items-center">

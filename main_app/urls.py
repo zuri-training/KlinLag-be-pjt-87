@@ -22,6 +22,8 @@ urlpatterns = [
     path('post/<int:pk>/', views.post_detail, name='post_detail'),
     path('blog/', views.BlogListView.as_view(), name='blog'),
     path('about/', views.about, name='about'),
+    path('recycle-pickup/', views.recycle_pickup, name= 'recycle-pickup'),
+    path('recycle-dropoff/', views.recycle_drop_off, name= 'recycle-dropoff'),
 ]
 
 if settings.DEBUG:

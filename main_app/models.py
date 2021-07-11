@@ -4,6 +4,7 @@ from klin_api.models import User
 from autoslug import AutoSlugField
 import datetime
 from django.urls import reverse
+from phonenumber_field.modelfields import PhoneNumberField
 
 
 class Schedule(models.Model):
@@ -58,4 +59,27 @@ class Comment(models.Model):
 
     def __str__(self):
         return f'Comment by {self.name} on {self.post}'
+
+
+class Waste(models.Model):
+    title = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.title
+
+
+class PickupRequest(models.Model):
+    full_name = models.CharField(max_length=50)
+    email = models.EmailField(max_length=50)
+    phone = PhoneNumberField(null=False, blank=False)
+    address = models.CharField(max_length=300)
+    date = models.DateField(auto_now_add=False)
+    time = models.TimeField(auto_now_add=False)
+    waste_type = models.ManyToManyField(Waste)
+    quantity = models.IntegerField()
+    extra_note = models.TextField(max_length=500)
+
+    def __str__(self):
+        return self.full_name
+
 

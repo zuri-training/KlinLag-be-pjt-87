@@ -33,6 +33,7 @@ def activate(request, uidb64, token):
         user.is_active = True
         user.signup_confirmation = True
         user.save()
+        messages.success(request, 'Your account has been activated')
         return redirect('main_app:login')
     else:
         return render(request, 'activation_invalid.html')
@@ -107,8 +108,11 @@ def login_request(request):
                 login(request, user)
                 messages.info(request, f'You are now logged in as {username}')
                 return redirect('main_app:home')
+            elif not user.is_active :
+                messages.error(request, 'Account has not been activated')
             else:
                 messages.error(request, 'Invalid username or password')
+
         else:
             messages.error(request, 'Invalid username or password.')
     form = AuthenticationForm()
@@ -229,3 +233,24 @@ def post_detail(request, pk):
 
 def about(request):
     return render(request, 'About.html')
+
+
+@login_required()
+def recycle_pickup(request):
+    if request.method == 'POST':
+        form = NewRequestForm(request.POST)
+        if form.is_valid():
+            waste = form.cleaned_data.get('waste_type')
+            form.waste_type = waste
+            form.save()
+            messages.success(request, 'Your request has been received, you will be contacted shortly')
+            return redirect('main_app:recycle-pickup')
+
+    else:
+        form = NewRequestForm
+    return render(request, 'recyclable-pickup.html', {'request_form': form})
+
+
+@login_required()
+def recycle_drop_off(request):
+    return render(request, 'recyclable-dropoff.html')
