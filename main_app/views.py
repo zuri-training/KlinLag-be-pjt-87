@@ -17,6 +17,7 @@ from rest_framework.reverse import reverse_lazy
 from django.views.generic.list import ListView
 from .utils import Calendar
 from .models import Schedule, Blogpost
+from .decorators import user_is_collector, user_is_giver
 
 
 def activation_sent_view(request):
@@ -96,8 +97,8 @@ def signup_agency(request):
 
 def login_request(request):
     current_user = request.user
-    if current_user.is_authenticated:
-        return redirect('main_app:home')
+    # if current_user.is_authenticated:
+    #     return redirect('main_app:home')
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
@@ -112,7 +113,8 @@ def login_request(request):
                     messages.info(request, f'You are now logged in as {username}')
                     return redirect('main_app:home')
                 else:
-                    messages.error(request, 'Your account is a collectors account')
+                    messages.error(request, "Your account is a collector's account, Sign in on the collectors page")
+                    return redirect('main_app:index')
             else:
                 messages.error(request, 'Invalid username or password')
 
@@ -124,8 +126,8 @@ def login_request(request):
 
 def login_agency(request):
     current_user=request.user
-    if current_user.is_authenticated:
-        return redirect('main_app:home')
+    # if current_user.is_authenticated:
+    #     return redirect('main_app:home')
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
@@ -140,7 +142,8 @@ def login_agency(request):
                     messages.info(request, f'You are now logged in as {username}')
                     return redirect('main_app:home')
                 else:
-                    messages.error(request, 'Your account is a givers account')
+                    messages.error(request, "Your account is a donor's account, Sign in on the donors page")
+                    return redirect('main_app:index')
             else:
                 messages.error(request, 'Invalid username or password')
         else:
@@ -153,11 +156,13 @@ def login_agency(request):
 def logout_request(request):
     logout(request)
     messages.info(request, "You have successfully logged out.")
-    return redirect("main_app:login")
+    return redirect("main_app:index")
 
 @login_required
 def home(request):
-    return render(request, 'home.html')
+    user = User.objects.get(id=request.user.id)
+
+    return render(request, 'home.html', {'user': user})
 
 
 def landing(request):
@@ -183,6 +188,7 @@ def my_profile(request):
     p = request.user.profile
     user = p.user
     return render(request, 'my_profile.html', {'profile':p, 'user':user})
+
 
 @login_required
 def edit_profile(request):
@@ -238,7 +244,7 @@ def post_detail(request, pk):
             data.save()
             return redirect('main_app:post_detail', pk = pk)
     else:
-            form = NewCommentForm
+        form = NewCommentForm
     return render(request, 'blogpost1.html', {'post': post, 'comment_form':form})
 
 
@@ -246,10 +252,11 @@ def about(request):
     return render(request, 'About.html')
 
 
-@login_required()
+@user_is_giver
+@login_required
 def recycle_pickup(request):
     if request.method == 'POST':
-        form = NewRequestForm(request.POST)
+        form = NewRequestFormDonor(request.POST)
         if form.is_valid():
             waste = form.cleaned_data.get('waste_type')
             form.waste_type = waste
@@ -258,10 +265,36 @@ def recycle_pickup(request):
             return redirect('main_app:recycle-pickup')
 
     else:
-        form = NewRequestForm
+        form = NewRequestFormDonor
     return render(request, 'recyclable-pickup.html', {'request_form': form})
 
 
-@login_required()
+@user_is_collector
+@login_required
+def recycle_delivery_agency(request):
+    if request.method == 'POST':
+        form = NewRequestFormCollector(request.POST)
+        if form.is_valid():
+            waste = form.cleaned_data.get('waste_type')
+            form.waste_type = waste
+            form.save()
+            messages.success(request, 'Your request has been received, you will be contacted shortly')
+            return redirect('main_app:recycle-delivery')
+
+    else:
+        form = NewRequestFormCollector
+    return render(request, 'recyclable-delivery-agency.html', {'request_form': form})
+
+
+@user_is_giver
+@login_required
 def recycle_drop_off(request):
     return render(request, 'recyclable-dropoff.html')
+
+
+@user_is_collector
+@login_required
+def recycle_location_agency(request):
+    return render(request, 'recyclable-location-agency.html')
+
+

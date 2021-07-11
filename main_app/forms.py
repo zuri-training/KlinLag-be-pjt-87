@@ -85,7 +85,8 @@ class NewCommentForm(forms.ModelForm):
         fields = ['name', 'body']
 
 
-class NewRequestForm(forms.ModelForm):
+class NewRequestFormDonor(forms.ModelForm):
+
     waste_type = forms.ModelMultipleChoiceField(
         queryset=Waste.objects.all(),
         widget=forms.CheckboxSelectMultiple,
@@ -94,3 +95,28 @@ class NewRequestForm(forms.ModelForm):
     class Meta:
         model = PickupRequest
         fields = ['full_name', 'email', 'phone', 'waste_type', 'address', 'time', 'quantity', 'date', 'extra_note']
+
+    def save(self, commit=True):
+        isg = super().save(commit=False)
+        isg.is_donor = True
+        if commit:
+            isg.save()
+        return isg
+
+
+class NewRequestFormCollector(forms.ModelForm):
+    waste_type = forms.ModelMultipleChoiceField(
+        queryset=Waste.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=True)
+
+    class Meta:
+        model = PickupRequest
+        fields = ['full_name', 'email', 'phone', 'waste_type', 'address', 'time', 'quantity', 'date', 'extra_note']
+
+    def save(self, commit=True):
+        isg = super().save(commit=False)
+        isg.is_donor = True
+        if commit:
+            isg.save()
+        return isg

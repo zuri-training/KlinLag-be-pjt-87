@@ -1,4 +1,4 @@
-{% include 'messages.html' %}
+
 {% load widget_tweaks %}
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +22,7 @@
 </head>
 
 <body>
-
+{% include 'messages.html' %}
   <nav class="navbar navbar-expand-lg navbar-light header__navigation">
     <div class="container">
       <a class="navbar-brand" href="#">
@@ -90,7 +90,7 @@
               <h4 class="heading-tertiary">Not yet a member?</h4>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-8">
-              <a href="{% url 'main_app:landing' %}"><button type="button" class="btn btn-primary btn-lg px-5">Sign Up</button></a>
+              <a href="{% url 'main_app:index' %}"><button type="button" class="btn btn-primary btn-lg px-5">Sign Up</button></a>
             </div>
           </div>
          </div> <!-- end col-4 -->
