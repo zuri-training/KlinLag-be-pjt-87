@@ -24,6 +24,7 @@
                     class="rounded-circle"
                     width="160px"
                     height="160px"
+                    alt="profile pic"
                   />
                 </a>
                     <p class="text-center text-info">{{ user.first_name }} {{ user.last_name }}</p>
@@ -32,6 +33,8 @@
                         <br/><br/>
                     <a href="{% url 'main_app:edit_profile' %}"><button class="btn btn--green">Edit Profile</button></a>
               </div>
+
+
 {% endblock %}
                  </div>
             </div>

@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 # from django.contrib.auth.models import User
 from klin_api.models import User
-from .models import Profile, Comment
+from .models import Profile, Comment, PickupRequest, Waste
 
 
 class UserSignUpForm(UserCreationForm):
@@ -84,3 +84,13 @@ class NewCommentForm(forms.ModelForm):
         model = Comment
         fields = ['name', 'body']
 
+
+class NewRequestForm(forms.ModelForm):
+    waste_type = forms.ModelMultipleChoiceField(
+        queryset=Waste.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=True)
+
+    class Meta:
+        model = PickupRequest
+        fields = ['full_name', 'email', 'phone', 'waste_type', 'address', 'time', 'quantity', 'date', 'extra_note']

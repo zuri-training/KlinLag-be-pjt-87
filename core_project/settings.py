@@ -29,7 +29,8 @@ INSTALLED_APPS = [
     'klin_api',
     'djoser',
     'crispy_forms',
-    'widget_tweaks'
+    'widget_tweaks',
+    'drf_spectacular'
  
 ]
 
@@ -140,7 +141,8 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny'
-    ]
+    ],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema'
 }
 AUTH_USER_MODEL = "klin_api.User"
 

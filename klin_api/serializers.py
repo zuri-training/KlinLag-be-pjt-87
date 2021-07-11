@@ -1,26 +1,27 @@
 from rest_framework import serializers
-from djoser.serializers import UserCreateSerializer
+from djoser.serializers import UserCreatePasswordRetypeSerializer
 from .models import User
 from main_app.models import Profile
 from django.db import transaction
 from rest_framework.validators import UniqueValidator
 
 
-class UserSerializer(UserCreateSerializer):
+class UserSerializer(UserCreatePasswordRetypeSerializer):
     is_giver = serializers.BooleanField(default=True)
+    username= serializers.CharField(default='me')
 
-    class Meta(UserCreateSerializer.Meta):
+    class Meta(UserCreatePasswordRetypeSerializer.Meta):
         model = User
-        fields = ['id', 'username', 'first_name', 'last_name', 'phone', 'email', 'location',
+        fields = ['id', 'first_name', 'last_name', 'phone', 'email', 'username',
                   'password', 'is_giver', 'is_collector']
 
 
-class AgencySerializer(UserCreateSerializer):
+class AgencySerializer(UserCreatePasswordRetypeSerializer):
     is_collector = serializers.BooleanField(default=True)
 
-    class Meta(UserCreateSerializer.Meta):
+    class Meta(UserCreatePasswordRetypeSerializer.Meta):
         model = User
-        fields = ['id', 'username', 'first_name', 'last_name', 'phone', 'email', 'password', 'is_collector', 'is_giver'
+        fields = ['id', 'username', 'first_name',  'phone', 'email', 'password', 'is_collector', 'is_giver'
                   ]
 
 

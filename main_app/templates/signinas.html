@@ -16,15 +16,20 @@
                 <div class="card-body">
 {% block body %}
     {% load crispy_forms_tags %}
-    <h2 class="title">Welcome</h2>
 
-                    <a href="{% url 'main_app:my_profile' %}"><button class="btn btn--green">My Profile</button></a>
-    <br/><br/>
-    <a href="{% url 'main_app:recycle-dropoff' %}"><button class="btn btn--green">Recycle DropOff</button></a>
-              <br/><br/>
-    <a href="{% url 'main_app:recycle-pickup' %}"><button class="btn btn--green">Recycle PickUp</button></a>
-    <br/><br/>
-                    <a href="{% url 'main_app:logout' %}"><button class="btn btn-secondary">Logout</button></a>
+
+                    <h2 class="title">Welcome</h2>
+
+                    <a href="{% url 'main_app:login_agency' %}"><button class="btn btn--yellow">Click here to sign in as a collector</button></a>
+                    <br/><br/>
+                    <p class="text-dark" style="font-size: 25px">or </p>
+                    <br/><br/>
+                    <a href="{% url 'main_app:login-user' %}"><button class="btn btn--green">Here as a depositor</button></a>
+
+                    <br/> <br/>
+                    <p class="text-center text-dark">If you don't have an account,
+                        <a href="{% url 'main_app:landing' %}"  style="color: green">Sign Up</a> instead.</p>
+
 {% endblock %}
                  </div>
             </div>
