@@ -185,4 +185,4 @@ MESSAGE_TAGS = {
  }
 
 django_heroku.settings(locals())
-LOGIN_URL = 'main_app:login'
+LOGIN_URL = 'main_app:index'

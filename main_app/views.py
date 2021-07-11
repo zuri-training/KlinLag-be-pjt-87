@@ -121,11 +121,11 @@ def login_request(request):
         else:
             messages.error(request, 'Account has not been activated or details have not been entered correctly.')
     form = AuthenticationForm()
-    return render(request=request, template_name='usersignin.html', context={'login_form': form})
+    return render(request=request, template_name='usersignin.html', context={'login_form': form, 'user': current_user})
 
 
 def login_agency(request):
-    current_user=request.user
+    current_user = request.user
     # if current_user.is_authenticated:
     #     return redirect('main_app:home')
     if request.method == 'POST':
@@ -149,7 +149,7 @@ def login_agency(request):
         else:
             messages.error(request, 'Account has not been activated or details have not been entered correctly.')
     form = AuthenticationForm()
-    return render(request=request, template_name='companysignin.html', context={'login_form': form})
+    return render(request=request, template_name='companysignin.html', context={'login_form': form, 'user':current_user})
 
 
 @login_required
@@ -166,10 +166,9 @@ def home(request):
 
 
 def landing(request):
-    user = request.user
-    if user.is_authenticated:
-        return redirect('main_app:home')
-    return render(request, 'landing.html')
+    user = User.objects.get(id=request.user.id)
+
+    return render(request, 'baseauth.html', {'user':user})
 
 
 def sign_up_as(request):
@@ -180,7 +179,8 @@ def sign_up_as(request):
 
 
 def index(request):
-    return render(request, 'index.html')
+    user = request.user
+    return render(request, 'index.html', {'user':user})
 
 
 @login_required
