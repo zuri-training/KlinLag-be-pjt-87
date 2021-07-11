@@ -85,6 +85,8 @@ class PickupRequest(models.Model):
     waste_type = models.ManyToManyField(Waste)
     quantity = models.IntegerField()
     extra_note = models.TextField(max_length=500)
+    is_donor = models.BooleanField(default=False)
+    is_collector = models.BooleanField(default=False)
 
     def __str__(self):
         return self.full_name

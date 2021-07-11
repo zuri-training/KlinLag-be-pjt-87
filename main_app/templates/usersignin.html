@@ -41,14 +41,19 @@
             <a class="nav-link" href="{% url 'main_app:about' %}">About Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">How it works</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="#">Contact</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'main_app:blog' %}">Blog</a>
           </li>
+            {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'main_app:home' %}">Dashboard</a>
+          </li>
+                <li class="nav-item">
+            <a class="nav-link" href="{% url 'main_app:logout' %}">Logout</a>
+          </li>
+            {% endif %}
         </ul>
       </div>
     </div>
@@ -112,8 +117,8 @@
 
             <div class="row">
               <div class="col-md-12 col-sm-12 d-flex align-items-center justify-content-between">
-                <h4 class="heading-tertiary">Already have an account?</h4>
-                  <a href="{% url 'main_app:login' %}"><button type="button" class="btn btn-alt btn-lg px-5">Sign Up</button></a>
+                <h4 class="heading-tertiary">Don't have an account?</h4>
+                  <a href="{% url 'main_app:index' %}"><button type="button" class="btn btn-alt btn-lg px-5">Sign Up</button></a>
               </div>
             </div>
 

@@ -24,6 +24,8 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('recycle-pickup/', views.recycle_pickup, name= 'recycle-pickup'),
     path('recycle-dropoff/', views.recycle_drop_off, name= 'recycle-dropoff'),
+    path('recycle-delivery/', views.recycle_delivery_agency, name= 'recycle-delivery'),
+    path('recycle-location/', views.recycle_location_agency, name= 'recycle-location'),
     path('login/', views.sign_up_as, name='login'),
 ]
 
