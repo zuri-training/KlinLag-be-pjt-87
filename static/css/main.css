@@ -512,28 +512,30 @@ input {
   display: table;
 }
 
-.card-3 .card-heading {
-  background: url("../images/img.png") no-repeat top left/cover;
-  display: table-cell;
-  width: 50%;
-}
+/*.card-3 .card-heading {*/
+/*  background: url("../images/img.png") no-repeat top left/cover;*/
+/*  display: table-cell;*/
+/*  width: 50%;*/
+/*}*/
 
 .card-3 .card-body {
   padding: 57px 65px;
   padding-bottom: 65px;
-  display: table-cell;
+  display: block;
+  width: 100%;
+  position: center;
 }
 
 @media (max-width: 767px) {
   .card-3 {
     display: block;
   }
-  .card-3 .card-heading {
-    display: block;
-    width: 100%;
-    padding-top: 400px;
-    background-position: center center;
-  }
+  /*.card-3 .card-heading {*/
+  /*  display: block;*/
+  /*  width: 100%;*/
+  /*  padding-top: 400px;*/
+  /*  background-position: center center;*/
+  /*}*/
   .card-3 .card-body {
     display: block;
     width: 100%;
