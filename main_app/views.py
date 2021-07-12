@@ -182,14 +182,14 @@ def index(request):
     user = request.user
     return render(request, 'index.html', {'user':user})
 
-
+@user_is_giver
 @login_required
 def my_profile(request):
     p = request.user.profile
     user = p.user
     return render(request, 'my_profile.html', {'profile':p, 'user':user})
 
-
+@user_is_giver
 @login_required
 def edit_profile(request):
     if request.method == 'POST':

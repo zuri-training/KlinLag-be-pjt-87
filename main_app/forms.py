@@ -6,9 +6,10 @@ from .models import Profile, Comment, PickupRequest, Waste
 
 
 class UserSignUpForm(UserCreationForm):
+    confirmation = forms.BooleanField(required=True, error_messages={'required': 'You must agree to our terms'})
     class Meta:
         model = User
-        fields = ( 'first_name', 'last_name', 'phone', 'email', 'password1', 'password2')
+        fields = ( 'first_name', 'last_name', 'phone', 'email', 'password1', 'password2', 'confirmation')
         help_texts = {
 
             'password1': None,
@@ -40,10 +41,10 @@ class UserSignUpForm(UserCreationForm):
 
 
 class AgencySignUpForm(UserCreationForm):
-
+    confirmation = forms.BooleanField(required=True, error_messages={'required': 'You must agree to our terms'})
     class Meta:
         model = User
-        fields = ('first_name', 'phone', 'email', 'password1', 'password2')
+        fields = ('first_name', 'phone', 'email', 'password1', 'password2', 'confirmation')
         help_texts = {
             'password1': None,
             'password2': None,
