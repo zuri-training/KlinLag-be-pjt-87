@@ -52,13 +52,19 @@
             </li>
 
       {% if user.is_authenticated %}
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'main_app:home' %}">Dashboard</a>
-            </li>
-                  <li class="nav-item">
-              <a class="nav-link" href="{% url 'main_app:logout' %}">Logout</a>
-            </li>
-      {% endif %}
+                {% if user.is_giver %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'main_app:home' %}">Dashboard</a>
+          </li>
+                    {% elif user.is_collector %}
+                    <li class="nav-item">
+            <a class="nav-link" href="{% url 'main_app:collect' %}">Dashboard</a>
+          </li>
+                    {% endif %}
+                <li class="nav-item">
+            <a class="nav-link" href="{% url 'main_app:logout' %}">Logout</a>
+          </li>
+            {% endif %}
 
           </ul>
         </div>
