@@ -179,7 +179,7 @@ def sign_up_as(request):
 
 
 def index(request):
-    user = User.objects.get(id=request.user.id)
+    user = request.user
     return render(request, 'index.html', {'user':user})
 
 @user_is_giver
