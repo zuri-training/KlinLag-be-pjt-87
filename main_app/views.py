@@ -101,7 +101,7 @@ def login_request(request):
     # if current_user.is_authenticated:
     #     return redirect('main_app:home')
     if request.method == 'POST':
-        form = AuthenticationForm(request, data=request.POST)
+        form = UserLoginForm(request, data=request.POST)
         if form.is_valid():
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
@@ -121,7 +121,7 @@ def login_request(request):
 
         else:
             messages.error(request, 'Account has not been activated or details have not been entered correctly.')
-    form = AuthenticationForm()
+    form = UserLoginForm
     return render(request=request, template_name='usersignin.html', context={'login_form': form, 'user': current_user})
 
 
@@ -130,7 +130,7 @@ def login_agency(request):
     # if current_user.is_authenticated:
     #     return redirect('main_app:home')
     if request.method == 'POST':
-        form = AuthenticationForm(request, data=request.POST)
+        form = AgencyLoginForm(request, data=request.POST)
         if form.is_valid():
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
@@ -149,7 +149,7 @@ def login_agency(request):
                 messages.error(request, 'Invalid username or password')
         else:
             messages.error(request, 'Account has not been activated or details have not been entered correctly.')
-    form = AuthenticationForm()
+    form = UserLoginForm
     return render(request=request, template_name='companysignin.html', context={'login_form': form, 'user':current_user})
 
 

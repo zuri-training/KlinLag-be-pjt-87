@@ -9,15 +9,10 @@ from crispy_forms.layout import Layout, ButtonHolder, Submit
 
 
 
-class AuthenticationForm(forms.Form):
-    email = forms.EmailField(required=True)
-
-    def clean_email(self):
-        user_input = self.cleaned_data['email']
-        return user_input.lower()
 
 
-class UserSignUpForm(UserCreationForm, AuthenticationForm):
+
+class UserSignUpForm(UserCreationForm):
     confirmation = forms.BooleanField(required=True, error_messages={'required': 'You must agree to our terms'})
     class Meta:
         model = User
@@ -44,9 +39,9 @@ class UserSignUpForm(UserCreationForm, AuthenticationForm):
 
         }
 
-    #def clean_email_input(self):
-        #user_input = self.cleaned_data['email']
-        #return user_input.lower()
+    def clean_email(self):
+        user_input = self.cleaned_data['email']
+        return user_input.lower()
 
 
     def save(self, commit=True):
@@ -57,7 +52,7 @@ class UserSignUpForm(UserCreationForm, AuthenticationForm):
         return user
 
 
-class AgencySignUpForm(UserCreationForm, AuthenticationForm):
+class AgencySignUpForm(UserCreationForm):
     confirmation = forms.BooleanField(required=True, error_messages={'required': 'You must agree to our terms'})
     class Meta:
         model = User
@@ -77,9 +72,9 @@ class AgencySignUpForm(UserCreationForm, AuthenticationForm):
             'email': forms.TextInput(attrs={'placeholder': 'Email'}),
         }
 
-    #def clean_email(self):
-        #user_input = self.cleaned_data['email']
-        #return user_input.lower()
+    def clean_email(self):
+        user_input = self.cleaned_data['email']
+        return user_input.lower()
 
 
     def save(self, commit=True):
@@ -91,37 +86,23 @@ class AgencySignUpForm(UserCreationForm, AuthenticationForm):
 
 
 class UserLoginForm(AuthenticationForm):
+    class Meta:
+        model = User
+        fields = ['username', 'password']
 
-    def __init__(self, *args, **kwargs):
-        super(UserLoginForm, self).__init__(*args, **kwargs)
-
-        self.helper = FormHelper()
-        self.helper.form_method = 'post' 
-               
-        self.helper.layout = Layout(
-            'username',
-            'password',
-            ButtonHolder(
-                Submit('login', 'Login',)
-            )
-        )
+    def clean_username(self):
+        user_input = self.cleaned_data['username']
+        return user_input.lower()
 
 
 class AgencyLoginForm(AuthenticationForm):
+    class Meta:
+        model = User
+        fields = ['username', 'password']
 
-    def __init__(self, *args, **kwargs):
-        super(AgencyLoginForm, self).__init__(*args, **kwargs)
-
-        self.helper = FormHelper()
-        self.helper.form_method = 'post' 
-               
-        self.helper.layout = Layout(
-            'username',
-            'password',
-            ButtonHolder(
-                Submit('login', 'Login',)
-            )
-        )
+    def clean_username(self):
+        user_input = self.cleaned_data['username']
+        return user_input.lower()
 
 
 class UserUpdateForm(forms.ModelForm):
