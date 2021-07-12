@@ -140,7 +140,7 @@ def login_agency(request):
                 if user.is_collector:
                     login(request, user)
                     messages.info(request, f'You are now logged in as {username}')
-                    return redirect('main_app:home')
+                    return redirect('main_app:collect')
                 else:
                     messages.error(request, "Your account is a donor's account, Sign in on the donors page")
                     return redirect('main_app:index')
@@ -172,14 +172,14 @@ def landing(request):
 
 
 def sign_up_as(request):
-    user = request.user
+    user = User.objects.get(id=request.user.id)
     if user.is_authenticated:
         return redirect('main_app:home')
     return render(request, 'signinas.html')
 
 
 def index(request):
-    user = request.user
+    user = User.objects.get(id=request.user.id)
     return render(request, 'index.html', {'user':user})
 
 @user_is_giver
@@ -298,3 +298,7 @@ def recycle_location_agency(request):
     return render(request, 'recyclable-location-agency.html')
 
 
+@login_required
+@user_is_collector
+def collect(request):
+    return render(request, 'collect.html')
