@@ -24,6 +24,9 @@ html {
 .mr-2 {
   margin-right: 2rem !important;
 }
+.pl-25 {
+  padding-left: 25rem;
+}
 .py-30 {
   padding-top: 15rem;
   padding-bottom: 30rem;
@@ -48,8 +51,8 @@ html {
   padding-top: 7rem;
 }
 
-.btn-yellow{ 
-  background: #EFBD09;
+.btn-yellow {
+  background: #efbd09;
   border-radius: 10px;
   color: #fff;
   width: 377px;
@@ -57,8 +60,8 @@ html {
   padding: 5px 10px;
   margin: 20px auto;
 }
-.btn-bleu{ 
-  background: #76A9DF;
+.btn-bleu {
+  background: #76a9df;
   border-radius: 10px;
   color: #fff;
   width: 377px;
@@ -67,7 +70,7 @@ html {
   margin: 10px auto;
 }
 
-.text-nunito{
+.text-nunito {
   font-family: Nunito, sans-serif;
 }
 /***********************************
@@ -93,12 +96,19 @@ body {
   color: #000;
 }
 
-.heading-tertiary {
+.heading-tertiary,
+.heading-download {
   font-weight: 800;
   font-size: 2.4rem;
-  text-transform: uppercase;
   margin-bottom: 3rem;
   color: #000;
+}
+
+.heading-tertiary {
+  text-transform: uppercase;
+}
+.heading-download {
+  text-transform: capitalize;
 }
 
 .heading-text {
@@ -117,7 +127,7 @@ body {
   min-height: 100vh;
 }
 /***********************************
-* NAVBAR 
+* NAVBAR
 ************************************/
 .header__navigation {
   font-size: 1.6rem;
@@ -212,6 +222,11 @@ body {
   background: #fff;
   color: #2ba84a;
   border-color: #2ba84a;
+}
+
+.mdi-36px {
+  font-size: 3.9rem;
+  margin-right: 10px;
 }
 
 /***********************************
@@ -347,16 +362,11 @@ body {
 .footer-nav-secondary a {
   color: #828282;
 }
-@media screen and (max-width:400px) {
-  .btn-yellow, .btn-bleu {
-    width: 280px;
-    height: 56px;
-    padding: 5px 20px;
-    margin: 15px auto;
-    font-size: 10px;
-}
 
 @media screen and (max-width: 76.8rem) {
+  .pl-25 {
+    padding-left: 3rem;
+  }
   .px-7 {
     padding-right: 2rem;
     padding-left: 2rem;
@@ -392,9 +402,26 @@ body {
     width: 80px;
     height: 80px;
   }
+  .download button {
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .btn-yellow,
+  .btn-bleu {
+    width: 280px;
+    height: 56px;
+    padding: 5px 20px;
+    margin: 15px auto;
+    font-size: 10px;
+  }
 }
 
 @media screen and (max-width: 36.5rem) {
+  .pl-25 {
+    padding-left: 5rem;
+  }
   .py-30 {
     padding-top: 5rem;
     padding-bottom: 5rem;
@@ -446,6 +473,9 @@ body {
     display: block;
     margin-bottom: 1rem;
   }
+  .download button {
+    margin-bottom: 1rem;
+  }
   .mr-2 {
     margin-right: 0 !important;
   }
@@ -471,6 +501,4 @@ body {
   .heading-footer {
     margin-top: 2rem;
   }
-}
-
 }
