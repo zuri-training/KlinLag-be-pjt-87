@@ -50,6 +50,7 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'main_app:blog' %}">Blog</a>
             </li>
+
       {% if user.is_authenticated %}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'main_app:home' %}">Dashboard</a>
@@ -58,6 +59,7 @@
               <a class="nav-link" href="{% url 'main_app:logout' %}">Logout</a>
             </li>
       {% endif %}
+
           </ul>
         </div>
       </div>

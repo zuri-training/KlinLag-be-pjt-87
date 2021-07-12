@@ -48,9 +48,15 @@
             <a class="nav-link" href="{% url 'main_app:blog' %}">Blog</a>
           </li>
             {% if user.is_authenticated %}
+                {% if user.is_giver %}
           <li class="nav-item">
             <a class="nav-link" href="{% url 'main_app:home' %}">Dashboard</a>
           </li>
+                    {% elif user.is_collector %}
+                    <li class="nav-item">
+            <a class="nav-link" href="{% url 'main_app:collect' %}">Dashboard</a>
+          </li>
+                    {% endif %}
                 <li class="nav-item">
             <a class="nav-link" href="{% url 'main_app:logout' %}">Logout</a>
           </li>
