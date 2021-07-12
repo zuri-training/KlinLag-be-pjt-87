@@ -18,6 +18,7 @@ from django.views.generic.list import ListView
 from .utils import Calendar
 from .models import Schedule, Blogpost
 from .decorators import user_is_collector, user_is_giver
+from django.forms import EmailField
 
 
 def activation_sent_view(request):
